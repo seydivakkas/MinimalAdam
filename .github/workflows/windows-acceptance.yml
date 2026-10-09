@@ -10,6 +10,10 @@ jobs:
   windows-acceptance:
     name: Windows P1–P5 / Python ${{ matrix.python-version }}
     runs-on: windows-latest
+    env:
+      # Windows runners may default to cp1252, which cannot print Turkish text.
+      PYTHONIOENCODING: utf-8
+      PYTHONUTF8: '1'
     strategy:
       fail-fast: false
       matrix:
