@@ -1,0 +1,11 @@
+# Keep byte-level SHA-256 source and SVG artifact checks portable.
+# Git for Windows may otherwise replace LF with CRLF on checkout.
+# Manifests in examples/technical/generated were built from LF originals.
+*.json text eol=lf
+*.svg text eol=lf
+.gitattributes text eol=lf
+
+# Preserve raster assets byte-for-byte.
+*.png binary
+*.jpg binary
+*.jpeg binary
