@@ -1,0 +1,26 @@
+{
+  "version": "p5-png-v1",
+  "file": "03-ml-pipeline.png",
+  "metrics": {
+    "size": [
+      1600,
+      900
+    ],
+    "blankFraction": 0.97517,
+    "darkPixelFraction": 0.00894,
+    "accentPixelFraction": 0.00239,
+    "offPaletteAccentFraction": 0.0,
+    "inkBoundingBoxFraction": 0.51076,
+    "sampleCount": 90000
+  },
+  "summary": {
+    "status": "PASS",
+    "errors": 0,
+    "warnings": 0
+  },
+  "issues": [],
+  "limitations": [
+    "Altörnekleme nedeniyle piksel yüzdeleri yaklaşıktır.",
+    "OCR, yazı doğruluğu, anlam, özgünlük ve karakterin gerçekten çalışması kontrol edilmez."
+  ]
+}

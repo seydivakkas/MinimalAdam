@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "mode": "ml-pipeline",
+  "concept": "Temsili model eğitimi ve tahmin hatlarının ayrımı",
+  "nodes": [
+    {
+      "id": "train_data",
+      "label": "Eğitim Verisi",
+      "kind": "data",
+      "x": 0.15,
+      "y": 0.3,
+      "w": 0.19,
+      "h": 0.18
+    },
+    {
+      "id": "train",
+      "label": "Eğitim",
+      "kind": "process",
+      "x": 0.45,
+      "y": 0.3,
+      "w": 0.17,
+      "h": 0.18,
+      "accent": "orange"
+    },
+    {
+      "id": "artifact",
+      "label": "Model Dosyası",
+      "kind": "model",
+      "x": 0.74,
+      "y": 0.3,
+      "w": 0.21,
+      "h": 0.18,
+      "accent": "blue"
+    },
+    {
+      "id": "new_data",
+      "label": "Yeni Veri",
+      "kind": "data",
+      "x": 0.25,
+      "y": 0.72,
+      "w": 0.18,
+      "h": 0.18
+    },
+    {
+      "id": "prediction",
+      "label": "Tahmin",
+      "kind": "result",
+      "x": 0.66,
+      "y": 0.72,
+      "w": 0.19,
+      "h": 0.18,
+      "accent": "orange"
+    }
+  ],
+  "edges": [
+    {
+      "from": "train_data",
+      "to": "train",
+      "kind": "data"
+    },
+    {
+      "from": "train",
+      "to": "artifact",
+      "kind": "data"
+    },
+    {
+      "from": "new_data",
+      "to": "prediction",
+      "kind": "data"
+    },
+    {
+      "from": "artifact",
+      "to": "prediction",
+      "kind": "control",
+      "from_port": "right",
+      "to_port": "right",
+      "via": [
+        [
+          0.89,
+          0.3
+        ],
+        [
+          0.89,
+          0.72
+        ]
+      ]
+    }
+  ],
+  "minimaladam": {
+    "x": 0.862,
+    "y": 0.535,
+    "action": "carry",
+    "edge": 3,
+    "scale": 1.17
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>MinimalAdam Studio — Teknik Çizim Editörü</title>
+<link rel="stylesheet" href="studio.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Proje yönetimi">
+    <div class="brand"><span class="mark" aria-hidden="true"><span></span></span><div><strong>MinimalAdam<span class="brand-light"> Studio</span></strong><small>TÜRKÇE / P5</small></div></div>
+    <div class="side-section"><div class="side-label">ÇALIŞMA ALANI</div>
+      <label class="fieldlabel" for="examples">Örnek proje</label><select id="examples">
+        <option value="01-yazilim-mimarisi">01 · Yazılım mimarisi</option>
+        <option value="02-veri-akisi">02 · Veri akışı</option>
+        <option value="03-ml-pipeline" selected>03 · ML pipeline</option>
+        <option value="04-muhendislik-sistemi">04 · Mühendislik sistemi</option>
+      </select>
+      <p class="muted small">Bir örnek seçildiğinde mevcut çalışma sıfırlanır. Değişikliklerini önceden JSON olarak kaydet.</p>
+    </div>
+    <div class="side-section"><div class="side-label">ARAÇLAR</div>
+      <button id="add-node" class="tool-btn"><span class="tool-icon">⊞</span><span>Düğüm ekle<small>Yeni bileşen</small></span><span class="shortcut">N</span></button>
+      <button id="connect" class="tool-btn"><span class="tool-icon">↗</span><span>Bağlantı kur<small>Önce kaynak, sonra hedef</small></span><span class="shortcut">C</span></button>
+      <button id="delete" class="tool-btn"><span class="tool-icon">⌫</span><span>Seçileni sil<small>Düğüm veya bağlantı</small></span><span class="shortcut">Del</span></button>
+    </div>
+    <div class="side-section"><div class="side-label">ÇİZİM STİLİ</div>
+      <div class="style-choices"><button data-style="sketch" class="style-btn selected"><span class="style-glyph sketch-line">〰</span><span>El çizimi</span></button><button data-style="technical" class="style-btn"><span class="style-glyph">▣</span><span>Teknik</span></button><button data-style="contrast" class="style-btn"><span class="style-glyph">⬡</span><span>Kontrast</span></button></div>
+      <p class="muted small">Her stil aynı düğüm ve bağlantı bilgisini korur.</p>
+    </div>
+    <div class="side-section export-section"><div class="side-label">PROJE / DIŞA AKTAR</div>
+      <button class="tool-btn" id="import"><span class="tool-icon">↥</span><span>JSON veya SVG aç<small>P3/P4 proje kaynağı</small></span></button>
+      <input id="file" type="file" accept=".json,.svg,application/json,image/svg+xml" hidden>
+      <button class="tool-btn" id="save-project"><span class="tool-icon">▤</span><span>Proje kaydet <small>Stil + düzenlenebilir JSON</small></span></button>
+      <button class="tool-btn" id="export-p3"><span class="tool-icon">{ }</span><span>P3 uyumlu JSON<small>Python motoruna aktar</small></span></button>
+      <div class="export-row"><button id="export-svg" class="primary-btn">SVG indir ↓</button><button id="export-png" class="secondary-btn">PNG indir ↓</button></div>
+    </div>
+    <div class="side-section"><div class="side-label">KALİTE RAPORU</div><button id="qa-report" class="tool-btn"><span class="tool-icon">☑</span><span>QA raporu indir<small>Denetimler + manuel kontrol listesi · JSON</small></span></button></div><div class="sidebar-bottom"><span class="connection-dot"></span> Bulut gerektirmez · Yerel çalışır</div>
+  </aside>
+
+  <main class="main" aria-label="Görsel editör">
+    <header class="topbar"><div class="breadcrumbs">PROJELER <span>/</span> <b id="project-label">ML pipeline</b></div><div class="toolbar"><button id="undo" title="Geri al (Ctrl+Z)">↶</button><button id="redo" title="İleri al (Ctrl+Shift+Z)">↷</button><span class="toolbar-divider"></span><button id="grid" title="Kılavuz ızgara">▦ Izgara</button><button id="zoom-out" title="Uzaklaş">−</button><strong id="zoom-label">100%</strong><button id="zoom-in" title="Yakınlaş">+</button><button id="reset-view" title="Görünümü sıfırla">↺</button></div></header>
+    <section class="content"><div class="canvas-header"><div><span class="eyebrow">CANVAS / 16:9</span><h1 id="concept-title">Model Eğitimi ve Tahmin</h1><p id="mode-label" class="muted">Makine öğrenmesi iş akışı</p></div><div class="canvas-status"><span id="counter">5 düğüm · 4 bağlantı</span><span class="pill">1600 × 900</span></div></div>
+      <div class="canvas-wrap" id="canvas-wrap"><div id="canvas-size"><svg xmlns="http://www.w3.org/2000/svg" id="diagram" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Düzenlenebilir teknik çizim" tabindex="0"></svg></div></div>
+      <div class="canvas-footer"><span id="interaction" aria-live="polite">Düğümü tutup taşıyabilir veya bir bağlantı seçebilirsin.</span><span id="status" class="status-ok">● Hazır</span></div>
+    </section>
+    <div class="quality" id="quality" role="status" aria-live="polite"></div>
+  </main>
+
+  <aside class="inspector" aria-label="Özellikler"><div class="inspector-head"><span class="side-label">ÖZELLİKLER</span><span class="inspector-badge" id="selection-type">PROJE</span></div><div id="properties" class="properties"></div>
+  <section id="qa-panel" class="qa-panel" aria-label="P5 kalite denetimi"><div class="side-label">P5 · OTOMATİK KALİTE DENETİMİ</div>
+ <strong id="qa-counts" aria-live="polite">Denetleniyor…</strong><div id="qa-findings" class="qa-findings"></div>
+ <p id="qa-manual" class="muted small"></p><label id="qa-preflight" class="qa-preflight" hidden><input id="qa-accept" type="checkbox"> Uyarıları inceledim; yine de dışa aktar.</label>
+ <p class="muted small">PASS, çizimin gerçek sistemi doğru anlattığını veya estetik kalitesini kanıtlamaz.</p></section>
+ <div class="inspector-foot"><strong>İpucu</strong><p>Tuvalde bir düğüme, oka veya MinimalAdam'a tıkla. Bağlantı kurmak için soldaki aracı seç.</p></div></aside>
+</div>
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+<script type="module" src="studio.mjs"></script>
+</body>
+</html>

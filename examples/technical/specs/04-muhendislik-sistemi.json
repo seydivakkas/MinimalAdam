@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "mode": "engineering-system",
+  "concept": "Temsili sensör-denetleyici-eyleyici geri besleme sistemi",
+  "nodes": [
+    {
+      "id": "sensor",
+      "label": "Sensör",
+      "kind": "sensor",
+      "x": 0.17,
+      "y": 0.35,
+      "w": 0.16,
+      "h": 0.18,
+      "accent": "blue"
+    },
+    {
+      "id": "controller",
+      "label": "Denetleyici",
+      "kind": "process",
+      "x": 0.48,
+      "y": 0.35,
+      "w": 0.19,
+      "h": 0.18,
+      "accent": "orange"
+    },
+    {
+      "id": "actuator",
+      "label": "Eyleyici",
+      "kind": "actuator",
+      "x": 0.79,
+      "y": 0.35,
+      "w": 0.17,
+      "h": 0.18
+    },
+    {
+      "id": "plant",
+      "label": "Fiziksel Sistem",
+      "kind": "system",
+      "x": 0.79,
+      "y": 0.66,
+      "w": 0.2,
+      "h": 0.18
+    }
+  ],
+  "edges": [
+    {
+      "from": "sensor",
+      "to": "controller",
+      "kind": "data"
+    },
+    {
+      "from": "controller",
+      "to": "actuator",
+      "kind": "control"
+    },
+    {
+      "from": "actuator",
+      "to": "plant",
+      "kind": "physical"
+    },
+    {
+      "from": "plant",
+      "to": "sensor",
+      "kind": "feedback",
+      "from_port": "bottom",
+      "to_port": "bottom",
+      "via": [
+        [
+          0.79,
+          0.84
+        ],
+        [
+          0.17,
+          0.84
+        ]
+      ],
+      "label": "Geri Besleme"
+    }
+  ],
+  "minimaladam": {
+    "x": 0.605,
+    "y": 0.365,
+    "action": "connect",
+    "edge": 1,
+    "scale": 1.0
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "mode": "data-flow",
+  "concept": "Temsili ham veri işleme ve rapor üretme akışı",
+  "source_spec": "02-veri-akisi.json",
+  "source_sha256": "c6a2f3e7ff4e6294b72c4cedf077063739cb4597c5b327297305ea4e0e490392",
+  "font": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "dimension": [
+    1600,
+    900
+  ],
+  "counts": {
+    "nodes": 4,
+    "edges": 3,
+    "labels": 4,
+    "minimaladam": 1
+  },
+  "outputs": {
+    "base": "02-veri-akisi.base.svg",
+    "labels": "02-veri-akisi.labels.svg",
+    "svg": "02-veri-akisi.svg",
+    "png": "02-veri-akisi.png"
+  },
+  "sha256": {
+    "base": "724f71f63468d467062aa4166a5214ced9eb48ece1354e016b75caca486d4196",
+    "labels": "e23fe55245e0ba919a6db89003e06ee2001a699fc4e7209324273a7d265a20a0",
+    "svg": "af01638a946c5dababc801e1bcf8afa340fd404df6d060089f8bfc8d5b850cf6",
+    "png": "b1a810afb069b24de4a611f072d59847ed21b15e8181bdd32f3ed2a760f054f7"
+  },
+  "qa": {
+    "nfc_strings": true,
+    "glyphs_checked": true,
+    "node_collisions_checked": true,
+    "edge_hits_other_nodes_checked": true,
+    "label_bounds_checked": true,
+    "label_label_collisions_checked": true,
+    "minimaladam_action_contact_checked": true,
+    "semantic_structure_not_automatically_verified": true,
+    "manual_visual_review_required": true
+  }
+}

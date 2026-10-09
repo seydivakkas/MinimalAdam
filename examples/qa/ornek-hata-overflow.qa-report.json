@@ -1,0 +1,73 @@
+{
+  "version": "p5-qa-v1",
+  "subject": "P3/P4 teknik çizim",
+  "style": "sketch",
+  "limits": {
+    "canvasWidth": 1600,
+    "canvasHeight": 900,
+    "minBlankFraction": 0.35,
+    "maxNodeBoxFraction": 0.47,
+    "labelInsetPx": 28,
+    "edgeSafePaddingPx": 7,
+    "contactWarningPx": 28,
+    "edgeCrossingTolerancePx": 5,
+    "nodeMarginPx": 64,
+    "terminalMarginPx": 48
+  },
+  "metrics": {
+    "canvas": {
+      "width": 1600,
+      "height": 900,
+      "aspect": "16:9"
+    },
+    "nodes": 5,
+    "edges": 4,
+    "nodeBoxAreaFraction": 0.169,
+    "estimatedWhitespaceLowerBound": 0.831,
+    "maxContactDistancePx": 7.85,
+    "crossingPairs": 0,
+    "disconnectedNodes": 0
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 1,
+    "info": 0,
+    "automatedStatus": "REVIEW"
+  },
+  "issues": [
+    {
+      "id": "TEXT_NODE_train",
+      "severity": "warning",
+      "category": "Türkçe etiket",
+      "message": "train: “Çok Çok Uzun Türkçe Etiket” düğüm kutusuna sığmayabilir (362 px).",
+      "subject": {
+        "type": "node",
+        "id": "train"
+      },
+      "detail": "Etiketi kısalt veya düğümü genişlet."
+    }
+  ],
+  "manualChecks": [
+    {
+      "code": "MANUAL_MEANING",
+      "label": "Bileşen ve oklar gerçek sistemin anlamını doğru temsil ediyor mu?",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "MANUAL_IP",
+      "label": "MinimalAdam karakterinin özgünlük, görsel tutarlılık ve eylem rolü uygun mu?",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "MANUAL_AESTHETICS",
+      "label": "Metafor, okunurluk, görsel denge ve özgünlük yeterli mi?",
+      "status": "NOT_VERIFIED"
+    },
+    {
+      "code": "MANUAL_FONTS",
+      "label": "Hedef cihazda seçilen font ve Türkçe glifler doğru görünüyor mu?",
+      "status": "NOT_VERIFIED"
+    }
+  ],
+  "disclaimer": "PASS yalnız tanımlı otomatik kuralların geçtiğini gösterir; özgünlük, anlam, kullanıcı algısı ve font render görünümü manuel kontrol gerektirir."
+}

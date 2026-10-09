@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "labels": [
+    {
+      "text": "Dağınık bilgi",
+      "x": 0.275,
+      "y": 0.305,
+      "color": "black",
+      "size": 40
+    },
+    {
+      "text": "Süzgeç",
+      "x": 0.5,
+      "y": 0.305,
+      "color": "blue",
+      "size": 40
+    },
+    {
+      "text": "Net fikir",
+      "x": 0.7,
+      "y": 0.305,
+      "color": "black",
+      "size": 40
+    },
+    {
+      "text": "Gereksiz",
+      "x": 0.428,
+      "y": 0.83,
+      "color": "red",
+      "size": 35
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "mode": "architecture",
+  "concept": "Temsili bir web uygulamasında istek ve veri kalıcılığı",
+  "nodes": [
+    {
+      "id": "ui",
+      "label": "İstemci",
+      "kind": "client",
+      "x": 0.13,
+      "y": 0.42,
+      "w": 0.15,
+      "h": 0.17
+    },
+    {
+      "id": "api",
+      "label": "API Katmanı",
+      "kind": "service",
+      "x": 0.37,
+      "y": 0.42,
+      "w": 0.18,
+      "h": 0.17,
+      "accent": "orange"
+    },
+    {
+      "id": "logic",
+      "label": "İş Mantığı",
+      "kind": "process",
+      "x": 0.62,
+      "y": 0.42,
+      "w": 0.17,
+      "h": 0.17
+    },
+    {
+      "id": "db",
+      "label": "Veritabanı",
+      "kind": "data",
+      "x": 0.87,
+      "y": 0.42,
+      "w": 0.16,
+      "h": 0.17,
+      "accent": "blue"
+    },
+    {
+      "id": "outside",
+      "label": "Harici Servis",
+      "kind": "service",
+      "x": 0.62,
+      "y": 0.72,
+      "w": 0.19,
+      "h": 0.17
+    }
+  ],
+  "edges": [
+    {
+      "from": "ui",
+      "to": "api",
+      "kind": "data"
+    },
+    {
+      "from": "api",
+      "to": "logic",
+      "kind": "data"
+    },
+    {
+      "from": "logic",
+      "to": "db",
+      "kind": "data"
+    },
+    {
+      "from": "logic",
+      "to": "outside",
+      "kind": "control"
+    }
+  ],
+  "minimaladam": {
+    "x": 0.239,
+    "y": 0.42,
+    "action": "connect",
+    "edge": 0,
+    "scale": 1.0
+  }
+}

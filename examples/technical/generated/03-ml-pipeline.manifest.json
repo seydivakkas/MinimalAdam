@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "mode": "ml-pipeline",
+  "concept": "Temsili model eğitimi ve tahmin hatlarının ayrımı",
+  "source_spec": "03-ml-pipeline.json",
+  "source_sha256": "860a0366921d1e9eed880b7c59ff309a3f5a8c469ca507cb0439c41b2e677446",
+  "font": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "dimension": [
+    1600,
+    900
+  ],
+  "counts": {
+    "nodes": 5,
+    "edges": 4,
+    "labels": 5,
+    "minimaladam": 1
+  },
+  "outputs": {
+    "base": "03-ml-pipeline.base.svg",
+    "labels": "03-ml-pipeline.labels.svg",
+    "svg": "03-ml-pipeline.svg",
+    "png": "03-ml-pipeline.png"
+  },
+  "sha256": {
+    "base": "a972ef6b354364f302a3584baf363b813ebb7dbe36bcd5e384f5f8533ad5d559",
+    "labels": "5b00b2af3d3f2e1538cb4f7dc8dc0fe9752faa535dcd7b5aed5b628d5bad62de",
+    "svg": "c98f9cba0f783dba7c8b1a8261b962499c1cb4bd3bd585913ddc443aa90dd78e",
+    "png": "4259ec2feaf58fc8106d7ce23c8e208cf119fbf734027a50a21d69bcda7d0b48"
+  },
+  "qa": {
+    "nfc_strings": true,
+    "glyphs_checked": true,
+    "node_collisions_checked": true,
+    "edge_hits_other_nodes_checked": true,
+    "label_bounds_checked": true,
+    "label_label_collisions_checked": true,
+    "minimaladam_action_contact_checked": true,
+    "semantic_structure_not_automatically_verified": true,
+    "manual_visual_review_required": true
+  }
+}

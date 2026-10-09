@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="white"/>
+<defs>
+<g id="minimaladam">
+  <!-- Tekrar kullanılabilir gövde silueti; karakter kimliği her sahnede aynı -->
+  <path d="M-48 -70 Q-53 -118 -20 -131 Q10 -147 38 -120 Q62 -97 48 -54 Q38 -12 1 -8 Q-39 -12 -48 -70Z" fill="#171717"/>
+  <ellipse cx="-17" cy="-91" rx="6.7" ry="8.2" fill="white"/>
+  <ellipse cx="17" cy="-92" rx="6.5" ry="8" fill="white"/>
+  <path d="M-15 -10 Q-18 3 -25 18 M16 -10 Q19 7 29 18" stroke="#171717" fill="none" stroke-width="6" stroke-linecap="round"/>
+</g>
+</defs>
+
+<!-- İki akış platformu ortada kopuyor; MinimalAdam asıl bağlantıyı örüyor -->
+<g stroke="#171717" fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M334 438 Q465 430 642 440 L650 536 Q520 532 334 541 Z" stroke-width="5"/>
+<path d="M949 438 Q1109 430 1276 439 L1270 540 Q1135 546 943 535 Z" stroke-width="5"/>
+<path d="M357 480 C465 467 543 467 603 475" stroke="#ed8832" stroke-width="7"/>
+<path d="M585 463 l22 12 l-23 16" stroke="#ed8832" stroke-width="6"/>
+<path d="M973 475 Q1083 466 1209 482" stroke="#ed8832" stroke-width="7"/>
+<path d="M1192 466 l23 17 l-23 12" stroke="#ed8832" stroke-width="6"/>
+<path d="M653 430 l-20 22 m29 -7 l-28 28 m18 40 l-19 21" stroke="#d74b3c" stroke-width="4"/>
+<path d="M957 432 l-20 24 m24 -4 l-24 26 m18 38 l-20 23" stroke="#d74b3c" stroke-width="4"/>
+<!-- Tamir edilen akış, kırık noktadan geçirilmiş ip -->
+<path d="M624 480 C702 449 719 510 793 469 C849 431 885 503 966 478" stroke="#ed8832" stroke-width="7"/>
+<path d="M737 492 Q759 518 790 529" stroke="#171717" stroke-width="4"/>
+<path d="M849 473 Q855 518 894 537" stroke="#171717" stroke-width="4"/>
+<path d="M648 540 Q800 558 952 541" stroke="#3a79ad" stroke-width="3" stroke-dasharray="10 19"/>
+</g>
+<!-- Ellerinden ip geçen MinimalAdam, orta noktada görevi yerine getiriyor -->
+<g transform="translate(806 687) scale(1)"><use xlink:href="#minimaladam"/></g>
+<path d="M759 619 Q728 579 742 499 M848 616 Q895 566 886 508" fill="none" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+<circle cx="742" cy="499" r="10" fill="white" stroke="#171717" stroke-width="4"/>
+<circle cx="886" cy="508" r="10" fill="white" stroke="#171717" stroke-width="4"/>
+<path d="M707 687 q95 16 190 -1" fill="none" stroke="#171717" stroke-width="3" opacity=".45"/>
+</svg>

@@ -1,0 +1,14 @@
+# Runtime outputs at repository root only; keep checked-in visual examples.
+/generated/
+/outputs/
+/dist/
+/.venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

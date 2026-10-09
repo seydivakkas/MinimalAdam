@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "dimensions": [
+    1600,
+    900
+  ],
+  "font_file": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "base_sha256": "da5d9d0390a83250e625eac270e51e56d7428b8ef7f1cf854bf3dc629b4f0570",
+  "labels_sha256": "a83bca38535caf680e676ddb49fc84d4551e5bb65db45badc7b5c90030d5c811",
+  "labels": [
+    {
+      "text": "Varsayım",
+      "x": 0.37,
+      "y": 0.33,
+      "color": "red",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Kanıt",
+      "x": 0.62,
+      "y": 0.305,
+      "color": "blue",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Karar",
+      "x": 0.79,
+      "y": 0.33,
+      "color": "black",
+      "size": 40,
+      "anchor": "center"
+    }
+  ],
+  "outputs": {
+    "image": "03-kanitla-karar-ver.png",
+    "text_png": "03-kanitla-karar-ver.text.png",
+    "text_svg": "03-kanitla-karar-ver.labels.svg"
+  },
+  "qa": {
+    "turkish_glyphs_present": true,
+    "no_label_collisions": true,
+    "no_clipping": true,
+    "visual_quality_not_automatically_verified": true
+  }
+}

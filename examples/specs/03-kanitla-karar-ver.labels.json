@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "labels": [
+    {
+      "text": "Varsayım",
+      "x": 0.37,
+      "y": 0.33,
+      "color": "red",
+      "size": 40
+    },
+    {
+      "text": "Kanıt",
+      "x": 0.62,
+      "y": 0.305,
+      "color": "blue",
+      "size": 40
+    },
+    {
+      "text": "Karar",
+      "x": 0.79,
+      "y": 0.33,
+      "color": "black",
+      "size": 40
+    }
+  ]
+}

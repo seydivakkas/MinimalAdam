@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>MinimalAdam Studio — Teknik Çizim Editörü</title>
+<style>
+:root{--ink:#1b2634;--muted:#8390a1;--line:#e7eaf0;--orange:#f38b45;--surface:#f7f8fa;--blue:#3f7eaf}*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#f6f7f9;color:var(--ink)}button,select,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #f5b888;outline-offset:2px}.shell{display:grid;grid-template-columns:252px minmax(450px,1fr) 284px;min-height:100vh}.sidebar,.inspector{background:#fff;min-height:100vh}.sidebar{border-right:1px solid var(--line);display:flex;flex-direction:column}.brand{height:98px;display:flex;align-items:center;gap:13px;padding:0 26px;border-bottom:1px solid var(--line)}.brand strong{font-size:20px;letter-spacing:-.75px}.brand-light{font-weight:500}.brand small{display:block;color:#98a3b0;font-size:10px;letter-spacing:2px;font-weight:800;margin-top:3px}.mark{width:34px;height:37px;background:#20242a;border-radius:47% 47% 40% 41%;position:relative;transform:rotate(-7deg)}.mark:before,.mark:after{content:"";width:5px;height:8px;background:#fff;border-radius:60%;position:absolute;top:12px}.mark:before{left:10px}.mark:after{right:10px}.mark span{position:absolute;bottom:-8px;left:9px;width:14px;height:13px;border-left:2px solid #20242a;border-right:2px solid #20242a}.side-section{padding:24px 20px 18px;border-bottom:1px solid var(--line)}.side-label{font-size:10px;color:#99a4b1;letter-spacing:1.8px;font-weight:850;display:block;margin-bottom:19px}.fieldlabel{font-size:12px;font-weight:600;display:block;margin-bottom:10px}select,input,textarea{width:100%;border:1px solid #e2e6ec;background:#fff;border-radius:9px;padding:11px 10px;min-width:0;color:#283444}select{font-size:12px}.muted{color:var(--muted)}.small{font-size:11px;line-height:1.65}.tool-btn{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;border-radius:9px;color:var(--ink);padding:9px 7px;text-align:left;font-size:12px;font-weight:700;margin:3px 0}.tool-btn:hover,.tool-btn.active{background:#fff3e9}.tool-btn small{display:block;color:#9aa5b4;font-weight:500;font-size:10px;margin-top:4px}.tool-icon{width:28px;height:28px;border-radius:8px;background:#f4f5f7;display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}.shortcut{margin-left:auto;color:#a4acb9;font-size:10px;font-weight:600}.style-choices{display:flex;gap:5px}.style-btn{min-width:0;flex:1;background:#fff;color:#7c8794;border:1px solid var(--line);padding:12px 3px 9px;border-radius:8px;font-size:10px}.style-btn.selected{color:#9a501a;background:#fff4ec;border-color:#f6bb92}.style-glyph{display:block;font-size:20px;height:29px;color:#263646}.sketch-line{color:var(--orange)}.export-section{border:0}.export-row{display:flex;gap:7px;margin-top:15px}.primary-btn,.secondary-btn{border-radius:8px;font-size:11px;font-weight:800;flex:1;padding:11px 6px}.primary-btn{background:#202735;color:white;border:1px solid #202735}.secondary-btn{background:#fff;border:1px solid #dee4eb;color:var(--ink)}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding:18px 23px;color:#91a0ac;font-size:11px}.connection-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#46aa85;margin-right:4px}.main{min-width:0;display:flex;flex-direction:column}.topbar{height:75px;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 31px;gap:10px}.breadcrumbs{font-size:11px;font-weight:700;letter-spacing:1px;color:#adb6c2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.breadcrumbs span{padding:0 10px;color:#d2d8e0}.breadcrumbs b{font-size:11px;color:#4c5a6a;letter-spacing:0}.toolbar{display:flex;gap:4px;align-items:center}.toolbar button{border:0;background:transparent;font-size:15px;border-radius:6px;padding:6px 10px;color:#526173}.toolbar button:hover{background:#f0f2f4}.toolbar strong{min-width:38px;text-align:center;font-size:11px;font-weight:650}.toolbar-divider{width:1px;height:19px;background:#e4e6ea;margin:0 10px}.content{padding:39px 32px 0}.canvas-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:25px;gap:10px}.eyebrow{color:#eb8d56;font-size:10px;letter-spacing:2px;font-weight:850}.canvas-header h1{font-size:27px;font-weight:650;letter-spacing:-1px;margin:9px 0 4px;line-height:1.2}.canvas-header p{font-size:12px;margin:0}.canvas-status{display:flex;gap:15px;align-items:center;font-size:11px;color:#84909d;white-space:nowrap}.pill{background:#e9edf1;padding:7px 11px;border-radius:999px;font-size:10px;color:#728093}.canvas-wrap{border:1px solid #e3e5e9;background:#e9ebed;border-radius:12px;padding:18px;overflow:auto;box-shadow:0 6px 18px rgba(41,56,67,.04);min-height:330px;max-height:calc(100vh - 275px)}.canvas-wrap.grid-active{background-color:#e9ebed;background-image:radial-gradient(#bcc6ce 1px,transparent 1px);background-size:16px 16px}#canvas-size{width:100%;margin:auto;min-width:400px;max-width:none}#diagram{width:100%;height:auto;display:block;background:white;box-shadow:0 6px 25px rgba(25,40,55,.07);touch-action:none}#diagram .diagram-node.selected>rect{stroke:#ee8733;stroke-width:5;stroke-dasharray:12 7}#diagram .diagram-edge.selected>path:first-child{stroke-width:7}#diagram #minimaladam.selected{filter:drop-shadow(0 0 8px #f58c43)}#diagram .diagram-node:hover>rect{stroke:#ed8733}.canvas-footer{display:flex;justify-content:space-between;gap:12px;padding-top:16px;font-size:11px;color:#8a97a4}.status-ok{color:#24866a}.status-warn{color:#aa602e}.status-error{color:#b63e43}.quality{padding:15px 32px;color:#8b92a0;font-size:11px;line-height:1.65}.quality .warning{color:#b65c2b}.quality .error{color:#b83243}.inspector{border-left:1px solid var(--line);display:flex;flex-direction:column}.inspector-head{height:75px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px}.inspector-head .side-label{margin:0}.inspector-badge{font-size:9px;font-weight:800;letter-spacing:1px;background:#f1f3f5;border-radius:5px;color:#7d8a99;padding:6px}.properties{padding:25px 21px;flex:1}.properties h2{font-size:16px;letter-spacing:-.3px;margin:0 0 10px}.properties .intro{font-size:12px;line-height:1.55;margin:0 0 27px;color:#8996a5}.prop-group{margin:20px 0}.prop-label{font-size:11px;font-weight:700;margin-bottom:8px;display:block;color:#536273}.properties input,.properties select,.properties textarea{font-size:12px}.properties textarea{resize:vertical;min-height:72px}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.info-box{padding:13px;background:#f7f8fa;border:1px solid #ecedf0;border-radius:10px;font-size:11px;color:#798794;line-height:1.65}.prop-actions{margin-top:20px;display:flex;gap:8px}.prop-actions button{flex:1;border:1px solid #e1e6eb;background:#fff;border-radius:8px;padding:10px;font-size:11px;font-weight:700}.prop-actions button:hover{border-color:#f29c58}.inspector-foot{padding:21px 24px;border-top:1px solid var(--line);background:#fbfcfd}.inspector-foot strong{font-size:11px}.inspector-foot p{color:#96a1ad;font-size:11px;line-height:1.7;margin-bottom:0}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,40px);opacity:0;pointer-events:none;background:#222e3e;color:white;padding:14px 20px;border-radius:9px;box-shadow:0 10px 28px #0002;font-size:12px;transition:.2s;z-index:10;max-width:min(540px,90vw)}.toast.show{transform:translate(-50%,0);opacity:1}@media(max-width:1100px){.shell{grid-template-columns:210px minmax(370px,1fr)}.sidebar{grid-row:1/3}.inspector{grid-column:2;min-height:unset;border-left:0;border-top:1px solid var(--line)}.content{padding:25px}.properties{display:block;padding:20px}}@media(max-width:680px){.shell{display:block}.sidebar,.inspector{min-height:auto}.sidebar .side-section{padding:12px 16px}.sidebar .brand{height:70px}.topbar{padding:0 13px;height:60px}.content{padding:18px 10px 0}.canvas-header h1{font-size:21px}.canvas-status{display:none}.canvas-wrap{padding:8px;min-height:250px}.toolbar button{padding:6px}.quality{padding:12px}}
+
+/* P5 audit pane: scrollable inspector with accessible issue buttons */
+.qa-panel{border-top:1px solid #e5e9ee;padding:17px 15px 15px;display:grid;gap:9px;background:#fafbfd;}
+.qa-panel .side-label{letter-spacing:.7px;}
+.qa-panel strong{font-size:13px;color:#273449;}
+.qa-findings{max-height:250px;overflow-y:auto;display:grid;gap:7px;}
+.qa-finding{text-align:left;padding:9px;border:1px solid #eedcc9;border-radius:9px;background:#fffaf3;color:#694018;font:inherit;cursor:pointer;}
+.qa-finding.error{background:#fff2f1;border-color:#ebadaa;color:#92251c;}
+.qa-finding:hover,.qa-finding:focus-visible{outline:2px solid #c98139;outline-offset:1px;}
+.qa-finding span{font-size:11px;font-weight:750;display:block;margin-bottom:4px;}
+.qa-finding small{font-size:12px;line-height:1.4;display:block;}
+.qa-ok{color:#2b735c;font-size:12px;margin:0;}
+.qa-preflight{background:#fff1db;border:1px solid #f2d1a2;border-radius:8px;padding:8px;display:flex;gap:8px;font-size:12px;line-height:1.35;align-items:flex-start;cursor:pointer;}
+.qa-preflight[hidden]{display:none;}
+.qa-preflight input{margin-top:2px;accent-color:#d57c20;}
+.qa-panel .muted{margin:0;}
+
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Proje yönetimi">
+    <div class="brand"><span class="mark" aria-hidden="true"><span></span></span><div><strong>MinimalAdam<span class="brand-light"> Studio</span></strong><small>TÜRKÇE / P5</small></div></div>
+    <div class="side-section"><div class="side-label">ÇALIŞMA ALANI</div>
+      <label class="fieldlabel" for="examples">Örnek proje</label><select id="examples">
+        <option value="01-yazilim-mimarisi">01 · Yazılım mimarisi</option>
+        <option value="02-veri-akisi">02 · Veri akışı</option>
+        <option value="03-ml-pipeline" selected>03 · ML pipeline</option>
+        <option value="04-muhendislik-sistemi">04 · Mühendislik sistemi</option>
+      </select>
+      <p class="muted small">Bir örnek seçildiğinde mevcut çalışma sıfırlanır. Değişikliklerini önceden JSON olarak kaydet.</p>
+    </div>
+    <div class="side-section"><div class="side-label">ARAÇLAR</div>
+      <button id="add-node" class="tool-btn"><span class="tool-icon">⊞</span><span>Düğüm ekle<small>Yeni bileşen</small></span><span class="shortcut">N</span></button>
+      <button id="connect" class="tool-btn"><span class="tool-icon">↗</span><span>Bağlantı kur<small>Önce kaynak, sonra hedef</small></span><span class="shortcut">C</span></button>
+      <button id="delete" class="tool-btn"><span class="tool-icon">⌫</span><span>Seçileni sil<small>Düğüm veya bağlantı</small></span><span class="shortcut">Del</span></button>
+    </div>
+    <div class="side-section"><div class="side-label">ÇİZİM STİLİ</div>
+      <div class="style-choices"><button data-style="sketch" class="style-btn selected"><span class="style-glyph sketch-line">〰</span><span>El çizimi</span></button><button data-style="technical" class="style-btn"><span class="style-glyph">▣</span><span>Teknik</span></button><button data-style="contrast" class="style-btn"><span class="style-glyph">⬡</span><span>Kontrast</span></button></div>
+      <p class="muted small">Her stil aynı düğüm ve bağlantı bilgisini korur.</p>
+    </div>
+    <div class="side-section export-section"><div class="side-label">PROJE / DIŞA AKTAR</div>
+      <button class="tool-btn" id="import"><span class="tool-icon">↥</span><span>JSON veya SVG aç<small>P3/P4 proje kaynağı</small></span></button>
+      <input id="file" type="file" accept=".json,.svg,application/json,image/svg+xml" hidden>
+      <button class="tool-btn" id="save-project"><span class="tool-icon">▤</span><span>Proje kaydet <small>Stil + düzenlenebilir JSON</small></span></button>
+      <button class="tool-btn" id="export-p3"><span class="tool-icon">{ }</span><span>P3 uyumlu JSON<small>Python motoruna aktar</small></span></button>
+      <div class="export-row"><button id="export-svg" class="primary-btn">SVG indir ↓</button><button id="export-png" class="secondary-btn">PNG indir ↓</button></div>
+    </div>
+    <div class="side-section"><div class="side-label">KALİTE RAPORU</div><button id="qa-report" class="tool-btn"><span class="tool-icon">☑</span><span>QA raporu indir<small>Denetimler + manuel kontrol listesi · JSON</small></span></button></div><div class="sidebar-bottom"><span class="connection-dot"></span> Bulut gerektirmez · Yerel çalışır</div>
+  </aside>
+
+  <main class="main" aria-label="Görsel editör">
+    <header class="topbar"><div class="breadcrumbs">PROJELER <span>/</span> <b id="project-label">ML pipeline</b></div><div class="toolbar"><button id="undo" title="Geri al (Ctrl+Z)">↶</button><button id="redo" title="İleri al (Ctrl+Shift+Z)">↷</button><span class="toolbar-divider"></span><button id="grid" title="Kılavuz ızgara">▦ Izgara</button><button id="zoom-out" title="Uzaklaş">−</button><strong id="zoom-label">100%</strong><button id="zoom-in" title="Yakınlaş">+</button><button id="reset-view" title="Görünümü sıfırla">↺</button></div></header>
+    <section class="content"><div class="canvas-header"><div><span class="eyebrow">CANVAS / 16:9</span><h1 id="concept-title">Model Eğitimi ve Tahmin</h1><p id="mode-label" class="muted">Makine öğrenmesi iş akışı</p></div><div class="canvas-status"><span id="counter">5 düğüm · 4 bağlantı</span><span class="pill">1600 × 900</span></div></div>
+      <div class="canvas-wrap" id="canvas-wrap"><div id="canvas-size"><svg xmlns="http://www.w3.org/2000/svg" id="diagram" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Düzenlenebilir teknik çizim" tabindex="0"></svg></div></div>
+      <div class="canvas-footer"><span id="interaction" aria-live="polite">Düğümü tutup taşıyabilir veya bir bağlantı seçebilirsin.</span><span id="status" class="status-ok">● Hazır</span></div>
+    </section>
+    <div class="quality" id="quality" role="status" aria-live="polite"></div>
+  </main>
+
+  <aside class="inspector" aria-label="Özellikler"><div class="inspector-head"><span class="side-label">ÖZELLİKLER</span><span class="inspector-badge" id="selection-type">PROJE</span></div><div id="properties" class="properties"></div>
+  <section id="qa-panel" class="qa-panel" aria-label="P5 kalite denetimi"><div class="side-label">P5 · OTOMATİK KALİTE DENETİMİ</div>
+ <strong id="qa-counts" aria-live="polite">Denetleniyor…</strong><div id="qa-findings" class="qa-findings"></div>
+ <p id="qa-manual" class="muted small"></p><label id="qa-preflight" class="qa-preflight" hidden><input id="qa-accept" type="checkbox"> Uyarıları inceledim; yine de dışa aktar.</label>
+ <p class="muted small">PASS, çizimin gerçek sistemi doğru anlattığını veya estetik kalitesini kanıtlamaz.</p></section>
+ <div class="inspector-foot"><strong>İpucu</strong><p>Tuvalde bir düğüme, oka veya MinimalAdam'a tıkla. Bağlantı kurmak için soldaki aracı seç.</p></div></aside>
+</div>
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+<script>
+/* P4: Dependency-free, editable SVG technical diagrams. Source of truth is P3 JSON. */
+const W=1600, H=900;
+const MODES=['architecture','data-flow','ml-pipeline','engineering-system'];
+const KINDS=['client','process','service','data','model','sensor','actuator','system','result'];
+const EDGES=['data','control','feedback','physical'];
+const ACCENTS=['black','orange','red','blue'];
+const STYLES=['sketch','technical','contrast'];
+const COLORS={black:'#1d2126',orange:'#ee8733',red:'#c84e3c',blue:'#3f7eaf'};
+const ARM={connect:[43,-15],inspect:[38,-27],carry:[45,-5],guard:[28,-35]};
+const clone=value=>JSON.parse(JSON.stringify(value));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const norm=(x)=>Math.round(x*10000)/10000;
+const esc=(s)=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+const isNum=x=>typeof x==='number'&&Number.isFinite(x);
+const validID=s=>typeof s==='string'&&/^[a-zA-Z0-9_]{1,32}$/.test(s);
+// Convert pre-v0.6 projects without mutating their input object.
+function normalizeLegacySpec(raw) {
+ const spec=clone(raw);
+ if(spec && Object.prototype.hasOwnProperty.call(spec,'xiaohei')) {
+  if(Object.prototype.hasOwnProperty.call(spec,'minimaladam'))throw Error('Karakter alanı iki kez verilmiş: xiaohei ve minimaladam');
+  spec.minimaladam=spec.xiaohei;
+  delete spec.xiaohei;
+ }
+ return spec;
+}
+function initialProject(spec,style='sketch') {return {format:'minimaladam-editor-v1',style:STYLES.includes(style)?style:'sketch',spec:normalizeLegacySpec(spec)}}
+function unboxProject(raw) {
+ const pr=['minimaladam-editor-v1','xiaohei-editor-v1'].includes(raw?.format)?raw:{format:'minimaladam-editor-v1',style:'sketch',spec:raw};
+ const normalized=normalizeLegacySpec(pr.spec);
+ if(!STYLES.includes(pr.style))throw Error('Bilinmeyen çizim stili');
+ const errors=validateSpec(normalized).filter(v=>v.level==='error');
+ if(errors.length)throw Error('Geçersiz P3 JSON: '+errors.map(x=>x.message).join(' · '));
+ return initialProject(normalized,pr.style);
+}
+function box(n) {return [(n.x-n.w/2)*W,(n.y-n.h/2)*H,(n.x+n.w/2)*W,(n.y+n.h/2)*H]}
+function boundsOverlap(a,b,pad=0) {return !(a[2]+pad<=b[0]||b[2]+pad<=a[0]||a[3]+pad<=b[1]||b[3]+pad<=a[1])}
+function validateSpec(s) {
+ const out=[],err=m=>out.push({level:'error',message:m}),warn=m=>out.push({level:'warning',message:m});
+ if(!s||typeof s!=='object'||Array.isArray(s))return [{level:'error',message:'Şema JSON nesnesi olmalı'}];
+ if(s.version!==1)err('P3 version=1 olmalı');
+ if(!MODES.includes(s.mode))err('Geçersiz teknik mod');
+ if(typeof s.concept!=='string'||!s.concept.trim())err('Kısa bir concept gerekli');
+ if(!Array.isArray(s.nodes)||s.nodes.length<2||s.nodes.length>8)err('P3: 2–8 düğüm gerekli');
+ if(!Array.isArray(s.edges)||s.edges.length<1||s.edges.length>12)err('P3: 1–12 bağlantı gerekli');
+ if(!Array.isArray(s.nodes)||!Array.isArray(s.edges))return out;
+ const ids=new Set();
+ s.nodes.forEach((n,i)=>{
+  if(!n||typeof n!=='object'){err(`Düğüm ${i} geçersiz`);return}
+  if(!validID(n.id)||ids.has(n.id))err(`Geçersiz/tekrarlı düğüm ID: ${n.id}`);ids.add(n.id);
+  if(!KINDS.includes(n.kind))err(`${n.id}: geçersiz tür`);
+  if(!ACCENTS.includes(n.accent??'black'))err(`${n.id}: geçersiz vurgu rengi`);
+  if(typeof n.label!=='string'||!n.label.trim()||n.label.length>32||/[<>\r\n\t]/.test(n.label)||n.label!==n.label.normalize('NFC'))err(`${n.id}: geçersiz Türkçe etiket`);
+  if(![n.x,n.y,n.w,n.h].every(isNum))err(`${n.id}: koordinatlar sayısal olmalı`);
+  else if(n.w<.115||n.w>.285||n.h<.13||n.h>.235||box(n)[0]<64||box(n)[2]>W-64||box(n)[1]<70||box(n)[3]>H-70)warn(`${n.id}: P3 sınırları dışında`);
+ });
+ s.nodes.forEach((n,i)=>s.nodes.slice(i+1).forEach(k=>{if([n.x,n.y,n.w,n.h,k.x,k.y,k.w,k.h].every(isNum)&&boundsOverlap(box(n),box(k),26))warn(`${n.id} ile ${k.id} çakışıyor`)}));
+ const pairs=new Set();
+ s.edges.forEach((e,i)=>{
+  if(!e||typeof e!=='object'){err(`Bağlantı ${i} geçersiz`);return}
+  if(!ids.has(e.from)||!ids.has(e.to)||e.from===e.to)err(`Bağlantı ${i}: geçersiz kaynak veya hedef`);
+  if(!EDGES.includes(e.kind??'data'))err(`Bağlantı ${i}: tür geçersiz`);
+  if(e.label!==undefined&&(typeof e.label!=='string'||e.label.length>22||/[<>\r\n\t]/.test(e.label)||e.label!==e.label.normalize('NFC')))err(`Bağlantı ${i}: hatalı etiket`);
+  const key=`${e.from}:${e.to}:${e.kind??'data'}`;if(pairs.has(key))err(`Tekrarlı bağlantı: ${key}`);pairs.add(key);
+  if(e.from_port&&!['left','right','top','bottom'].includes(e.from_port))err(`Bağlantı ${i}: kaynak port`);
+  if(e.to_port&&!['left','right','top','bottom'].includes(e.to_port))err(`Bağlantı ${i}: hedef port`);
+  if(e.via!==undefined&&(!Array.isArray(e.via)||e.via.length>6||e.via.some(p=>!Array.isArray(p)||p.length!==2||p.some(v=>!isNum(v)||v<=.0175||v>=.9825))))err(`Bağlantı ${i}: ara noktalar geçersiz`);
+ });
+ const c=s.minimaladam;
+ if(!c||!isNum(c.x)||!isNum(c.y)||!Number.isInteger(c.edge)||c.edge<0||c.edge>=s.edges.length||!Object.keys(ARM).includes(c.action??'connect'))err('MinimalAdam geçerli bir bağlantı ve eylem içermeli');
+ return out;
+}
+function port(n,p) {const [a,b,c,d]=box(n);return {left:[a,(b+d)/2],right:[c,(b+d)/2],top:[(a+c)/2,b],bottom:[(a+c)/2,d]}[p]}
+function defaultPorts(a,b) {const dx=(b.x-a.x)*W,dy=(b.y-a.y)*H;return Math.abs(dx)>=Math.abs(dy)?dx>0?['right','left']:['left','right']:dy>0?['bottom','top']:['top','bottom']}
+function route(e,nodes) {
+ const a=nodes.find(n=>n.id===e.from), b=nodes.find(n=>n.id===e.to);
+ if(!a||!b)return [];
+ const [pa,pb]=defaultPorts(a,b),pf=e.from_port||pa,pt=e.to_port||pb;
+ const start=port(a,pf),end=port(b,pt);
+ if(e.via?.length)return [start,...e.via.map(p=>[p[0]*W,p[1]*H]),end];
+ if(Math.abs(start[0]-end[0])<.01||Math.abs(start[1]-end[1])<.01)return [start,end];
+ if(['left','right'].includes(pf)&&['left','right'].includes(pt)) {const mid=(start[0]+end[0])/2;return [start,[mid,start[1]],[mid,end[1]],end]}
+ if(['top','bottom'].includes(pf)&&['top','bottom'].includes(pt)) {const mid=(start[1]+end[1])/2;return [start,[start[0],mid],[end[0],mid],end]}
+ return [start,[end[0],start[1]],end];
+}
+function pointToSegment(p,a,b) {const vx=b[0]-a[0],vy=b[1]-a[1],m=vx*vx+vy*vy,t=m?clamp(((p[0]-a[0])*vx+(p[1]-a[1])*vy)/m,0,1):0;return {point:[a[0]+vx*t,a[1]+vy*t],distance:Math.hypot(p[0]-a[0]-vx*t,p[1]-a[1]-vy*t)}}
+function nearestOnRoute(p,pts) {const opts=pts.slice(1).map((x,i)=>pointToSegment(p,pts[i],x));return opts.sort((a,b)=>a.distance-b.distance)[0]||null}
+function snapMinimalAdam(spec) {
+ const c=spec.minimaladam;if(!c||!spec.edges[c.edge])return;
+ const points=route(spec.edges[c.edge],spec.nodes);const arm=ARM[c.action]||ARM.connect,scale=c.scale||1;
+ const hand=[c.x*W+arm[0]*scale,c.y*H+arm[1]*scale],p=nearestOnRoute(hand,points);
+ if(p){c.x=norm(clamp((p.point[0]-arm[0]*scale)/W,.065,.935));c.y=norm(clamp((p.point[1]-arm[1]*scale)/H,.12,.9))}
+}
+function styleFor(style) {return {sketch:{line:2.6,round:20,font:'"Segoe UI", Arial, sans-serif',bg:'#ffffff',node:'#ffffff',text:'#1d2126',dash:'5 9'},technical:{line:2,round:6,font:'"Segoe UI", Arial, sans-serif',bg:'#ffffff',node:'#ffffff',text:'#1d2126',dash:'7 5'},contrast:{line:3.6,round:18,font:'"Segoe UI", Arial, sans-serif',bg:'#ffffff',node:'#f8fbff',text:'#111827',dash:'9 7'}}[style]||null}
+function nodeGlyph(n,x,y) {const color=COLORS[n.accent||'black']||COLORS.black;
+ switch(n.kind){case 'data':return `<ellipse cx="${x}" cy="${y-6}" rx="13" ry="5" fill="none" stroke="${color}" stroke-width="3"/><path d="M ${x-13} ${y-6} v16 q13 10 26 0 v-16" fill="none" stroke="${color}" stroke-width="3"/>`;
+ case 'model':return `<path d="M ${x-13} ${y} l13 -13 13 13 -13 13 Z" fill="none" stroke="${color}" stroke-width="3"/><circle cx="${x}" cy="${y}" r="3.4" fill="${color}"/>`;
+ case 'sensor':case 'client':return `<path d="M ${x-13} ${y+7} Q ${x} ${y-18} ${x+13} ${y+7}" fill="none" stroke="${color}" stroke-width="3"/><circle cx="${x}" cy="${y+7}" r="4" fill="${color}"/>`;
+ case 'actuator':case 'system':return `<circle cx="${x}" cy="${y}" r="12" fill="none" stroke="${color}" stroke-width="3"/><path d="M ${x-5} ${y+4} l6 -13 6 13" fill="none" stroke="${color}" stroke-width="3"/>`;
+ case 'result':return `<path d="M ${x-12} ${y} l8 8 18 -20" fill="none" stroke="${color}" stroke-width="4"/>`;
+ default:return `<rect x="${x-12}" y="${y-12}" width="24" height="24" rx="5" fill="none" stroke="${color}" stroke-width="3"/><circle cx="${x}" cy="${y}" r="3" fill="${color}"/>`}}
+function nodeMarkup(n,style) {const opts=styleFor(style),[a,b,c,d]=box(n),w=c-a,h=d-b;
+ return `<g class="diagram-node" id="node-${esc(n.id)}" data-node-id="${esc(n.id)}" style="cursor:grab"><rect x="${a}" y="${b}" width="${w}" height="${h}" rx="${opts.round}" fill="${opts.node}" stroke="${opts.text}" stroke-width="${opts.line}"/>${style==='sketch'?`<path d="M ${a+15} ${b+12} Q ${a+w/2} ${b+7} ${c-15} ${b+11}" stroke="${opts.text}" stroke-width="1.3" opacity=".24" fill="none"/>`:''}${nodeGlyph(n,a+28,b+30)}<text x="${n.x*W}" y="${n.y*H+12}" fill="${opts.text}" font-family='${opts.font}' font-size="24" font-weight="550" text-anchor="middle" dominant-baseline="middle">${esc(n.label)}</text></g>`}
+function edgeMarkup(e,i,spec,style) {const pts=route(e,spec.nodes);if(!pts.length)return '';
+ const color={data:COLORS.orange,control:COLORS.black,feedback:COLORS.blue,physical:COLORS.red}[e.kind]||COLORS.orange;
+ const path=pts.map((p,j)=>`${j?'L':'M'} ${p[0].toFixed(2)} ${p[1].toFixed(2)}`).join(' ');
+ const dash=e.kind==='feedback'?(styleFor(style).dash):e.kind==='physical'?'2 7':'';
+ const segments=pts.slice(1).map((p,j)=>[pts[j],p]);const [a,b]=segments.sort((a,b)=>Math.hypot(b[0][0]-b[1][0],b[0][1]-b[1][1])-Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]))[0];
+ let lx=(a[0]+b[0])/2,ly=(a[1]+b[1])/2;if(Math.abs(a[0]-b[0])>=Math.abs(a[1]-b[1]))ly-=23;else lx+=22;
+ return `<g class="diagram-edge" id="edge-${i}" data-edge-index="${i}" style="cursor:pointer"><path d="${path}" fill="none" stroke="${color}" stroke-width="${style==='contrast'?4.5:3.2}" stroke-dasharray="${dash}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-${e.kind||'data'})"/><path d="${path}" fill="none" stroke="transparent" stroke-width="25"/>${e.label?`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" font-size="19" font-family="Segoe UI,Arial,sans-serif" fill="${color}" stroke="white" stroke-width="7" paint-order="stroke" dominant-baseline="middle">${esc(e.label)}</text>`:''}</g>`}
+function creatureMarkup(c) {if(!c)return '';const arm=ARM[c.action]||ARM.connect,s=c.scale||1,x=c.x*W,y=c.y*H;return `<g id="minimaladam" data-creature="1" transform="translate(${x} ${y}) scale(${s})" style="cursor:pointer"><path d="M -17 21 l-8 20 M 13 21 l6 20" stroke="${COLORS.black}" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M -16 -14 Q -28 -13 -24 8 Q -18 27 3 26 Q 27 25 28 3 Q 26 -26 4 -31 Q -15 -32 -16 -14 Z" fill="${COLORS.black}"/><ellipse cx="-3" cy="-9" rx="3.2" ry="4.5" fill="white"/><ellipse cx="13" cy="-8" rx="3.2" ry="4.5" fill="white"/><path d="M 22 5 Q 31 -1 ${arm[0]} ${arm[1]}" stroke="${COLORS.black}" fill="none" stroke-width="3" stroke-linecap="round"/><circle cx="${arm[0]}" cy="${arm[1]}" r="3.2" fill="${COLORS.black}"/></g>`}
+function exportSVG(project,{metadata=true}={}) {
+ const {spec,style}=project;if(validateSpec(spec).some(x=>x.level==='error'))throw Error('Önce şema hatalarını düzeltin');
+ const defs=`<defs>${EDGES.map(kind=>{const color={data:COLORS.orange,control:COLORS.black,feedback:COLORS.blue,physical:COLORS.red}[kind];return `<marker id="arrow-${kind}" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 2 2 L 12 7 L 2 12" fill="none" stroke="${color}" stroke-width="2.2"/></marker>`}).join('')}</defs>`;
+ const contents=`<rect x="0" y="0" width="${W}" height="${H}" fill="white"/>${defs}<g id="technical-base">${spec.edges.map((e,i)=>edgeMarkup(e,i,spec,style)).join('')}${spec.nodes.map(n=>nodeMarkup(n,style)).join('')}${creatureMarkup(spec.minimaladam)}</g>`;
+ const meta=metadata?`<metadata id="minimaladam-editable-spec">${esc(JSON.stringify(project))}</metadata>`:'';
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(spec.concept)}">${meta}${contents}</svg>`;
+}
+// Safe import: SVG with embedded P4 metadata, or a confirmed legacy P3 schematic.
+function importSVGText(text) {
+ const parsed=new DOMParser().parseFromString(text,'image/svg+xml');
+ if(parsed.querySelector('parsererror'))throw Error('SVG XML geçersiz');
+ const root=parsed.documentElement;
+ if(root.localName!=='svg')throw Error('SVG gerekli');
+ const meta=root.querySelector('metadata#minimaladam-editable-spec,metadata#xiaohei-editable-spec');
+ if(meta)return unboxProject(JSON.parse(meta.textContent));
+ const groups=[...root.querySelectorAll('#technical-base > g[id^="node-"]')],edges=[...root.querySelectorAll('#technical-base > path[id^="edge-"]')];
+ if(groups.length<2||edges.length<1)throw Error('Bu SVG düzenlenebilir P3 şeması olarak tanınmadı; JSON kaynağını açın');
+ const allTexts=[...root.querySelectorAll('#turkish-label-layer > text')];
+ const nodes=groups.map(g=>{
+  const id=g.getAttribute('id').slice(5),r=g.querySelector('rect');if(!r||!validID(id))throw Error('Eski SVG düğüm okunamadı');
+  const a=+r.getAttribute('x'),b=+r.getAttribute('y'),w=+r.getAttribute('width'),h=+r.getAttribute('height');
+  const label=allTexts.find(t=>Math.abs(+t.getAttribute('x')-(a+w/2))<2 && Math.abs(+t.getAttribute('y')-(b+h/2+12))<3)?.textContent;
+  if(!label)throw Error(`Düğümün Türkçe etiketi belirlenemedi: ${id}`);
+  const kind=g.getAttribute('data-kind')||'process';
+  const colored=[...g.querySelectorAll('[stroke]')].map(e=>e.getAttribute('stroke'));const found=Object.entries(COLORS).find(([k,v])=>k!=='black'&&colored.includes(v));
+  return {id,label,kind,x:norm((a+w/2)/W),y:norm((b+h/2)/H),w:norm(w/W),h:norm(h/H),...(found?{accent:found[0]}:{})};
+ });
+ const es=edges.map(el=>{
+  const d=el.getAttribute('d')||'';
+  const points=[...d.matchAll(/[ML]\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/g)].map(m=>[+m[1],+m[2]]);
+  if(points.length<2)throw Error('Eski SVG bağlantı okunamadı');
+  const findAnchor=(p)=>{
+   const opts=nodes.flatMap(n=>['left','right','top','bottom'].map(q=>({n,p:q,dist:Math.hypot(port(n,q)[0]-p[0],port(n,q)[1]-p[1])})));
+   const best=opts.sort((a,b)=>a.dist-b.dist)[0];if(best.dist>3)throw Error('SVG bağlantı ucu belirsiz; orijinal JSON kaynağını açın');return best;
+  };
+  const source=findAnchor(points[0]),target=findAnchor(points.at(-1));
+  if(source.n.id===target.n.id)throw Error('Eski SVG bağlantı uçları belirsiz');
+  const color=el.getAttribute('stroke');const kind=color===COLORS.blue?'feedback':color===COLORS.red?'physical':color===COLORS.black?'control':'data';
+  const mid=points[Math.floor(points.length/2)];
+  const label=allTexts.filter(t=>!nodes.some(n=>n.label===t.textContent)).map(t=>({text:t.textContent,dist:nearestOnRoute([+t.getAttribute('x'),+t.getAttribute('y')],points)?.distance??999})).sort((a,b)=>a.dist-b.dist)[0];
+  return {from:source.n.id,to:target.n.id,kind,from_port:source.p,to_port:target.p,...(points.length>2?{via:points.slice(1,-1).map(p=>[norm(p[0]/W),norm(p[1]/H)])}:{}),...(label&&label.dist<70?{label:label.text}:{})};
+ });
+ const c=root.querySelector('#minimaladam,#xiaohei');if(!c)throw Error('Eski SVG içinde karakter bulunamadı');
+ const transform=c.getAttribute('transform')||'';
+ const m=transform.match(/translate\(([-\d.]+)[, ]+([-\d.]+)\)\s*scale\(([-\d.]+)\)/);
+ if(!m)throw Error('Eski SVG karakter konumu okunamadı');
+ // The original P3 SVG did not serialize the logical action/edge; recover only if exactly one edge is within contact distance.
+ const [x,y]=[+m[1],+m[2]],scale=+m[3];
+ const candidates=[];
+ es.forEach((e,i)=>Object.entries(ARM).forEach(([action,arm])=>{const hand=[x+arm[0]*scale,y+arm[1]*scale];const hit=nearestOnRoute(hand,route(e,nodes));if(hit&&hit.distance<4)candidates.push({i,action,distance:hit.distance})}));
+ if(!candidates.length)throw Error('Eski SVG MinimalAdam bağlantısı belirlenemedi; JSON kaynağı gerekli');
+ const best=candidates.sort((a,b)=>a.distance-b.distance)[0];
+ const concept=root.getAttribute('aria-label')||'Eski P3 SVG içe aktarıldı';
+ // Original SVG cannot identify original mode; use architecture as an explicitly editable default.
+ const raw={version:1,mode:'architecture',concept,nodes,edges:es,minimaladam:{x:norm(x/W),y:norm(y/H),scale,action:best.action,edge:best.i}};
+ const issues=validateSpec(raw).filter(x=>x.level==='error');if(issues.length)throw Error('Eski SVG beklenen P3 biçimine çevrilemedi: '+issues.map(x=>x.message).join('; '));
+ return initialProject(raw);
+}
+
+// Embedded demos: no runtime network request required.
+const SAMPLES = {
+  "01-yazilim-mimarisi": {
+    "version": 1,
+    "mode": "architecture",
+    "concept": "Temsili bir web uygulamasında istek ve veri kalıcılığı",
+    "nodes": [
+      {
+        "id": "ui",
+        "label": "İstemci",
+        "kind": "client",
+        "x": 0.13,
+        "y": 0.42,
+        "w": 0.15,
+        "h": 0.17
+      },
+      {
+        "id": "api",
+        "label": "API Katmanı",
+        "kind": "service",
+        "x": 0.37,
+        "y": 0.42,
+        "w": 0.18,
+        "h": 0.17,
+        "accent": "orange"
+      },
+      {
+        "id": "logic",
+        "label": "İş Mantığı",
+        "kind": "process",
+        "x": 0.62,
+        "y": 0.42,
+        "w": 0.17,
+        "h": 0.17
+      },
+      {
+        "id": "db",
+        "label": "Veritabanı",
+        "kind": "data",
+        "x": 0.87,
+        "y": 0.42,
+        "w": 0.16,
+        "h": 0.17,
+        "accent": "blue"
+      },
+      {
+        "id": "outside",
+        "label": "Harici Servis",
+        "kind": "service",
+        "x": 0.62,
+        "y": 0.72,
+        "w": 0.19,
+        "h": 0.17
+      }
+    ],
+    "edges": [
+      {
+        "from": "ui",
+        "to": "api",
+        "kind": "data"
+      },
+      {
+        "from": "api",
+        "to": "logic",
+        "kind": "data"
+      },
+      {
+        "from": "logic",
+        "to": "db",
+        "kind": "data"
+      },
+      {
+        "from": "logic",
+        "to": "outside",
+        "kind": "control"
+      }
+    ],
+    "minimaladam": {
+      "x": 0.239,
+      "y": 0.42,
+      "action": "connect",
+      "edge": 0,
+      "scale": 1.0
+    }
+  },
+  "02-veri-akisi": {
+    "version": 1,
+    "mode": "data-flow",
+    "concept": "Temsili ham veri işleme ve rapor üretme akışı",
+    "nodes": [
+      {
+        "id": "raw",
+        "label": "Ham Veri",
+        "kind": "data",
+        "x": 0.13,
+        "y": 0.49,
+        "w": 0.155,
+        "h": 0.18
+      },
+      {
+        "id": "clean",
+        "label": "Temizleme",
+        "kind": "process",
+        "x": 0.37,
+        "y": 0.49,
+        "w": 0.17,
+        "h": 0.18,
+        "accent": "orange"
+      },
+      {
+        "id": "validate",
+        "label": "Doğrulama",
+        "kind": "process",
+        "x": 0.62,
+        "y": 0.49,
+        "w": 0.18,
+        "h": 0.18
+      },
+      {
+        "id": "report",
+        "label": "Rapor",
+        "kind": "result",
+        "x": 0.87,
+        "y": 0.49,
+        "w": 0.15,
+        "h": 0.18,
+        "accent": "blue"
+      }
+    ],
+    "edges": [
+      {
+        "from": "raw",
+        "to": "clean",
+        "kind": "data"
+      },
+      {
+        "from": "clean",
+        "to": "validate",
+        "kind": "data"
+      },
+      {
+        "from": "validate",
+        "to": "report",
+        "kind": "data"
+      }
+    ],
+    "minimaladam": {
+      "x": 0.25,
+      "y": 0.49,
+      "action": "carry",
+      "edge": 0,
+      "scale": 1.0
+    }
+  },
+  "03-ml-pipeline": {
+    "version": 1,
+    "mode": "ml-pipeline",
+    "concept": "Temsili model eğitimi ve tahmin hatlarının ayrımı",
+    "nodes": [
+      {
+        "id": "train_data",
+        "label": "Eğitim Verisi",
+        "kind": "data",
+        "x": 0.15,
+        "y": 0.3,
+        "w": 0.19,
+        "h": 0.18
+      },
+      {
+        "id": "train",
+        "label": "Eğitim",
+        "kind": "process",
+        "x": 0.45,
+        "y": 0.3,
+        "w": 0.17,
+        "h": 0.18,
+        "accent": "orange"
+      },
+      {
+        "id": "artifact",
+        "label": "Model Dosyası",
+        "kind": "model",
+        "x": 0.74,
+        "y": 0.3,
+        "w": 0.21,
+        "h": 0.18,
+        "accent": "blue"
+      },
+      {
+        "id": "new_data",
+        "label": "Yeni Veri",
+        "kind": "data",
+        "x": 0.25,
+        "y": 0.72,
+        "w": 0.18,
+        "h": 0.18
+      },
+      {
+        "id": "prediction",
+        "label": "Tahmin",
+        "kind": "result",
+        "x": 0.66,
+        "y": 0.72,
+        "w": 0.19,
+        "h": 0.18,
+        "accent": "orange"
+      }
+    ],
+    "edges": [
+      {
+        "from": "train_data",
+        "to": "train",
+        "kind": "data"
+      },
+      {
+        "from": "train",
+        "to": "artifact",
+        "kind": "data"
+      },
+      {
+        "from": "new_data",
+        "to": "prediction",
+        "kind": "data"
+      },
+      {
+        "from": "artifact",
+        "to": "prediction",
+        "kind": "control",
+        "from_port": "right",
+        "to_port": "right",
+        "via": [
+          [
+            0.89,
+            0.3
+          ],
+          [
+            0.89,
+            0.72
+          ]
+        ]
+      }
+    ],
+    "minimaladam": {
+      "x": 0.862,
+      "y": 0.535,
+      "action": "carry",
+      "edge": 3,
+      "scale": 1.17
+    }
+  },
+  "04-muhendislik-sistemi": {
+    "version": 1,
+    "mode": "engineering-system",
+    "concept": "Temsili sensör-denetleyici-eyleyici geri besleme sistemi",
+    "nodes": [
+      {
+        "id": "sensor",
+        "label": "Sensör",
+        "kind": "sensor",
+        "x": 0.17,
+        "y": 0.35,
+        "w": 0.16,
+        "h": 0.18,
+        "accent": "blue"
+      },
+      {
+        "id": "controller",
+        "label": "Denetleyici",
+        "kind": "process",
+        "x": 0.48,
+        "y": 0.35,
+        "w": 0.19,
+        "h": 0.18,
+        "accent": "orange"
+      },
+      {
+        "id": "actuator",
+        "label": "Eyleyici",
+        "kind": "actuator",
+        "x": 0.79,
+        "y": 0.35,
+        "w": 0.17,
+        "h": 0.18
+      },
+      {
+        "id": "plant",
+        "label": "Fiziksel Sistem",
+        "kind": "system",
+        "x": 0.79,
+        "y": 0.66,
+        "w": 0.2,
+        "h": 0.18
+      }
+    ],
+    "edges": [
+      {
+        "from": "sensor",
+        "to": "controller",
+        "kind": "data"
+      },
+      {
+        "from": "controller",
+        "to": "actuator",
+        "kind": "control"
+      },
+      {
+        "from": "actuator",
+        "to": "plant",
+        "kind": "physical"
+      },
+      {
+        "from": "plant",
+        "to": "sensor",
+        "kind": "feedback",
+        "from_port": "bottom",
+        "to_port": "bottom",
+        "via": [
+          [
+            0.79,
+            0.84
+          ],
+          [
+            0.17,
+            0.84
+          ]
+        ],
+        "label": "Geri Besleme"
+      }
+    ],
+    "minimaladam": {
+      "x": 0.605,
+      "y": 0.365,
+      "action": "connect",
+      "edge": 1,
+      "scale": 1.0
+    }
+  }
+};
+
+/** P5: Explainable, deterministic preflight for source-defined MinimalAdam P3/P4 diagrams.
+ * No AI aesthetic claims. Geometry uses nominal SVG coordinates, not browser font layout.
+ */
+
+const QA_VERSION='p5-qa-v1';
+const QA_LIMITS=Object.freeze({
+  canvasWidth:W,canvasHeight:H,minBlankFraction:0.35,maxNodeBoxFraction:0.47,
+  labelInsetPx:28,edgeSafePaddingPx:7,contactWarningPx:28,edgeCrossingTolerancePx:5,
+  nodeMarginPx:64,terminalMarginPx:48,
+});
+const MANUAL=[
+ {code:'MANUAL_MEANING',label:'Bileşen ve oklar gerçek sistemin anlamını doğru temsil ediyor mu?'},
+ {code:'MANUAL_IP',label:'MinimalAdam karakterinin özgünlük, görsel tutarlılık ve eylem rolü uygun mu?'},
+ {code:'MANUAL_AESTHETICS',label:'Metafor, okunurluk, görsel denge ve özgünlük yeterli mi?'},
+ {code:'MANUAL_FONTS',label:'Hedef cihazda seçilen font ve Türkçe glifler doğru görünüyor mu?'},
+];
+const round=v=>Math.round(v*1000)/1000;
+function doesSegmentHitBox(a,b,bb,padding=0){
+ const [l,t,r,bt]=[bb[0]-padding,bb[1]-padding,bb[2]+padding,bb[3]+padding];
+ // Liang–Barsky segment–rectangle clipping; also supports diagonal segments.
+ let u0=0,u1=1;const dx=b[0]-a[0],dy=b[1]-a[1];
+ for(const [p,q] of [[-dx,a[0]-l],[dx,r-a[0]],[-dy,a[1]-t],[dy,bt-a[1]]]){
+  if(Math.abs(p)<1e-10){if(q<0)return false;continue}
+  const v=q/p;
+  if(p<0)u0=Math.max(u0,v);else u1=Math.min(u1,v);
+  if(u0>u1)return false;
+ }
+ return u1>u0+1e-6;
+}
+function intersectInterior(a,b,c,d,epsilon){
+ const cross=(u,v)=>u[0]*v[1]-u[1]*v[0];const r=[b[0]-a[0],b[1]-a[1]],s=[d[0]-c[0],d[1]-c[1]];
+ const den=cross(r,s);if(Math.abs(den)<1e-8)return false;
+ const ca=[c[0]-a[0],c[1]-a[1]],t=cross(ca,s)/den,u=cross(ca,r)/den;
+ const lenA=Math.hypot(...r),lenB=Math.hypot(...s);
+ return t>epsilon/lenA&&t<1-epsilon/lenA&&u>epsilon/lenB&&u<1-epsilon/lenB;
+}
+function edgeLabelAnchor(points){
+ const segs=points.slice(1).map((p,i)=>[points[i],p]).sort((u,v)=>
+   Math.hypot(v[0][0]-v[1][0],v[0][1]-v[1][1])-Math.hypot(u[0][0]-u[1][0],u[0][1]-u[1][1]));
+ const [[a,b],[c,d]]=segs.length?[segs[0][0],segs[0][1]]:[[0,0],[0,0]];
+ // a,b and c,d are endpoints of longest segment.
+ let x=(a+c)/2,y=(b+d)/2;
+ if(Math.abs(a-c)>=Math.abs(b-d))y-=23;else x+=22;
+ return [x,y];
+}
+function widthOf(text,size,measureText){
+ const v=measureText?.(text,size);
+ return typeof v==='number'&&Number.isFinite(v)&&v>=0?v:[...text].reduce((sum,c)=>sum+('İıMWŞĞÖÜ@'.includes(c)?0.75:/[.,:;!|]/.test(c)?.3:0.58)*size,0);
+}
+function auditProject(project,{measureText}={}){
+ const spec=project?.spec;
+ const issues=[];
+ const push=(id,severity,category,message,subject=null,detail='')=>issues.push({id,severity,category,message,subject,detail});
+ const coreIssues=validateSpec(spec);
+ coreIssues.forEach((v,i)=>push(`STRUCT_${i}`,v.level==='error'?'error':'warning','Şema yapısı',v.message));
+ const creature=spec?.minimaladam;
+ if(creature&&creature.scale!==undefined&&(!Number.isFinite(creature.scale)||creature.scale<.65||creature.scale>1.5))push('MINIMALADAM_SCALE','error','Karakter','MinimalAdam ölçeği 0.65–1.5 aralığında sayısal olmalı.');
+ if(creature&&Number.isFinite(creature.x)&&Number.isFinite(creature.y)&&(creature.x<0||creature.x>1||creature.y<0||creature.y>1))push('MINIMALADAM_BOUNDS','error','Karakter','MinimalAdam konumu 0–1 tuval koordinatlarını aşmamalı.');
+ const metrics={canvas:{width:W,height:H,aspect:'16:9'},nodes:spec?.nodes?.length??0,edges:spec?.edges?.length??0,
+   nodeBoxAreaFraction:null,estimatedWhitespaceLowerBound:null,maxContactDistancePx:null,
+   crossingPairs:0,disconnectedNodes:0};
+ if(!issues.some(v=>v.severity==='error')&&spec){
+  const nodes=spec.nodes,edges=spec.edges;
+  const nodeById=new Map(nodes.map(n=>[n.id,n]));
+  let boxSum=0;
+  for(const n of nodes){
+   const b=box(n);boxSum+=(b[2]-b[0])*(b[3]-b[1]);
+   const width=widthOf(n.label,24,measureText);
+   if(width>n.w*W-QA_LIMITS.labelInsetPx)push(`TEXT_NODE_${n.id}`,'warning','Türkçe etiket',`${n.id}: “${n.label}” düğüm kutusuna sığmayabilir (${Math.ceil(width)} px).`,{type:'node',id:n.id},'Etiketi kısalt veya düğümü genişlet.');
+  }
+  const fraction=boxSum/(W*H);metrics.nodeBoxAreaFraction=round(fraction);
+  metrics.estimatedWhitespaceLowerBound=round(Math.max(0,1-fraction));
+  if(fraction>QA_LIMITS.maxNodeBoxFraction)push('LAYOUT_DENSITY','warning','Yerleşim',`Düğüm kutuları tuvalin %${Math.round(fraction*100)} kadarını kaplıyor.`,null,'Fazla bileşeni ayrı bir çizime böl. Bu metrik gerçek boş alan ölçümü değildir.');
+  const hitPaths=edges.map(e=>route(e,nodes));
+  edges.forEach((e,i)=>{
+   const points=hitPaths[i];
+   nodes.filter(n=>n.id!==e.from&&n.id!==e.to).forEach(n=>{
+    if(points.slice(1).some((p,j)=>doesSegmentHitBox(points[j],p,box(n),QA_LIMITS.edgeSafePaddingPx)))
+     push(`EDGE_NODE_${i}_${n.id}`,'warning','Bağlantı geometrisi',`${e.from} → ${e.to} oku “${n.label}” düğümünü kesiyor.`,{type:'edge',id:i},'Bağlantının ara noktalarını veya düğüm yerleşimini düzenle.');
+   });
+   if(e.label){
+    const [cx,cy]=edgeLabelAnchor(points),half=widthOf(e.label,19,measureText)/2;
+    const labelBounds=[cx-half-5,cy-11,cx+half+5,cy+11];
+    if(labelBounds[0]<QA_LIMITS.terminalMarginPx||labelBounds[2]>W-QA_LIMITS.terminalMarginPx||labelBounds[1]<QA_LIMITS.terminalMarginPx||labelBounds[3]>H-QA_LIMITS.terminalMarginPx)
+     push(`EDGE_TEXT_BOUND_${i}`,'warning','Türkçe etiket',`Bağlantı ${i+1} etiketi tuval kenarına fazla yakın.`,{type:'edge',id:i});
+    for(const n of nodes)if(boundsOverlap(labelBounds,box(n),2))
+      push(`EDGE_TEXT_NODE_${i}_${n.id}`,'warning','Türkçe etiket',`Bağlantı ${i+1} etiketi “${n.label}” kutusuyla çakışabilir.`,{type:'edge',id:i});
+   }
+  });
+  for(let i=0;i<edges.length;i++)for(let j=i+1;j<edges.length;j++){
+   const a=hitPaths[i],b=hitPaths[j];let crossing=false;
+   for(let x=1;x<a.length&&!crossing;x++)for(let y=1;y<b.length&&!crossing;y++){
+    if(intersectInterior(a[x-1],a[x],b[y-1],b[y],QA_LIMITS.edgeCrossingTolerancePx))crossing=true;
+   }
+   if(crossing){metrics.crossingPairs++;push(`EDGE_CROSS_${i}_${j}`,'warning','Bağlantı geometrisi',`Bağlantı ${i+1} ve ${j+1} birbirini kesiyor.`,{type:'edge',id:i},'Kesişme kasıtlıysa uyarıyı inceleyerek kabul et.');}
+  }
+  const graph=new Map(nodes.map(n=>[n.id,new Set()]));
+  for(const e of edges){graph.get(e.from)?.add(e.to);graph.get(e.to)?.add(e.from)}
+  for(const [id,links] of graph){if(!links.size){metrics.disconnectedNodes++;push(`GRAPH_ORPHAN_${id}`,'warning','Graf bütünlüğü',`${id} düğümünün bağlantısı yok.`,{type:'node',id})}}
+  const seen=new Set(),stack=[nodes[0].id];while(stack.length){const id=stack.pop();if(seen.has(id))continue;seen.add(id);for(const to of graph.get(id)||[])stack.push(to)}
+  if(seen.size<nodes.length)push('GRAPH_DISCONNECTED','warning','Graf bütünlüğü',`Graf ${nodes.length-seen.size} düğüme ana bileşenden ulaşamıyor.`,null,'Bu bağımsız alt sistemler için bilinçli olabilir.');
+  const c=spec.minimaladam,arm=ARM[c.action]||ARM.connect;
+  const hand=[c.x*W+arm[0]*(c.scale||1),c.y*H+arm[1]*(c.scale||1)];
+  const match=nearestOnRoute(hand,hitPaths[c.edge]);if(match){metrics.maxContactDistancePx=round(match.distance);
+   if(match.distance>QA_LIMITS.contactWarningPx)push('MINIMALADAM_CONTACT','warning','Karakter',`MinimalAdam’nin eli etkileştiği oka ${Math.ceil(match.distance)} px uzak.`,{type:'creature'},'Karakteri bağlantıya hizala.');}
+  const creatureBox=[c.x*W-33*(c.scale||1),c.y*H-38*(c.scale||1),c.x*W+33*(c.scale||1),c.y*H+48*(c.scale||1)];
+  for(const n of nodes)if(boundsOverlap(creatureBox,box(n),-4))push(`MINIMALADAM_NODE_${n.id}`,'warning','Karakter',`MinimalAdam, “${n.label}” kutusuyla örtüşebilir.`,{type:'creature'});
+ }
+ const summary={errors:issues.filter(x=>x.severity==='error').length,warnings:issues.filter(x=>x.severity==='warning').length,info:issues.filter(x=>x.severity==='info').length,automatedStatus:'PASS'};
+ summary.automatedStatus=summary.errors?'FAIL':summary.warnings?'REVIEW':'PASS';
+ return {version:QA_VERSION,subject:'P3/P4 teknik çizim',style:project?.style||'unknown',limits:{...QA_LIMITS},metrics,summary,issues,manualChecks:MANUAL.map(x=>({...x,status:'NOT_VERIFIED'})),disclaimer:'PASS yalnız tanımlı otomatik kuralların geçtiğini gösterir; özgünlük, anlam, kullanıcı algısı ve font render görünümü manuel kontrol gerektirir.'};
+}
+
+const $=id=>document.getElementById(id);
+const names={'architecture':'Yazılım mimarisi','data-flow':'Veri akışı','ml-pipeline':'Makine öğrenmesi hattı','engineering-system':'Mühendislik sistemi'};
+const labels={client:'İstemci',process:'İşlem',service:'Servis',data:'Veri',model:'Model',sensor:'Sensör',actuator:'Eyleyici',system:'Sistem',result:'Sonuç'};
+const edgeLabels={data:'Veri akışı',control:'Kontrol',feedback:'Geri besleme',physical:'Fiziksel etki'};
+const styleLabels={sketch:'El çizimi',technical:'Teknik',contrast:'Kontrast'};
+let project=initialProject(SAMPLES['03-ml-pipeline']);
+let selected={type:'project'},history=[],redoStack=[],connectSource=null,tool='select',drag=null,zoom=1,grid=false;
+let toastTimer;
+let legacySourceNote=false;
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),4200)}
+function checkpoint(){history.push(JSON.stringify(project));if(history.length>70)history.shift();redoStack=[]}
+function applyHistory(stackFrom,stackTo){if(!stackFrom.length)return;stackTo.push(JSON.stringify(project));project=JSON.parse(stackFrom.pop());selected={type:'project'};tool='select';connectSource=null;renderAll()}
+function byId(id){return project.spec.nodes.find(n=>n.id===id)}
+function select(type,id){selected={type,id};renderAll()}
+function input(name,value,type='text',options=[],hint=''){
+ const optionsHTML=options.map(o=>{const [v,label]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${String(value)===String(v)?'selected':''}>${esc(label)}</option>`}).join('');
+ return `<div class="prop-group"><label class="prop-label" for="field-${esc(name)}">${esc(hint||name)}</label>${type==='select'?`<select id="field-${esc(name)}" data-field="${esc(name)}">${optionsHTML}</select>`:type==='textarea'?`<textarea id="field-${esc(name)}" data-field="${esc(name)}">${esc(value??'')}</textarea>`:`<input id="field-${esc(name)}" data-field="${esc(name)}" type="${type}" value="${esc(value??'')}" ${type==='number'?'step="0.01"':''}>`}</div>`
+}
+function inspector(){const s=project.spec;let html='';let tag='PROJE';
+ if(selected.type==='node') {
+  const n=byId(selected.id);if(!n){selected={type:'project'};return inspector()}
+  tag='DÜĞÜM';html=`<h2>${esc(n.label)}</h2><p class="intro">Bir bileşenin adını, türünü, rengini ve boyutunu değiştir.</p>`;
+  html+=input('label',n.label,'text',[],'Türkçe etiket')+input('kind',n.kind,'select',KINDS.map(x=>[x,labels[x]]),'Bileşen türü')+input('accent',n.accent||'black','select',ACCENTS.map(x=>[x,{black:'Siyah',orange:'Turuncu',red:'Kırmızı',blue:'Mavi'}[x]]),'Vurgu rengi');
+  html+=`<div class="field-row">${input('x',(n.x*100).toFixed(2),'number',[],'X (%)')}${input('y',(n.y*100).toFixed(2),'number',[],'Y (%)')}</div><div class="field-row">${input('w',(n.w*100).toFixed(2),'number',[],'Genişlik (%)')}${input('h',(n.h*100).toFixed(2),'number',[],'Yükseklik (%)')}</div>`;
+  html+=`<div class="info-box">ID: ${esc(n.id)}<br>Bağlantılar düğüm taşındığında otomatik yönlendirilir.</div>`;
+ } else if(selected.type==='edge'){
+  const e=s.edges[selected.id];if(!e){selected={type:'project'};return inspector()}
+  tag='BAĞLANTI';html=`<h2>Bağlantı ${selected.id+1}</h2><p class="intro">Kaynak ve hedef uçları, tür, etiket ve isteğe bağlı ara noktaları değiştir.</p>`;
+  const opts=s.nodes.map(n=>[n.id,`${n.label} (${n.id})`]);
+  html+=input('from',e.from,'select',opts,'Kaynak')+input('to',e.to,'select',opts,'Hedef')+input('kind',e.kind||'data','select',EDGES.map(x=>[x,edgeLabels[x]]),'Bağlantı türü')+input('label',e.label||'','text',[],'Bağlantı etiketi (isteğe bağlı)');
+  html+=`<div class="field-row">${input('from_port',e.from_port||'auto','select',[['auto','Otomatik'],...['left','right','top','bottom'].map(x=>[x,x])],'Kaynak port')}${input('to_port',e.to_port||'auto','select',[['auto','Otomatik'],...['left','right','top','bottom'].map(x=>[x,x])],'Hedef port')}</div>`;
+  html+=input('via',JSON.stringify(e.via||[]),'textarea',[],'Ara noktalar (0–1 koordinatları)')+`<div class="info-box">Örnek: [[0.45,0.2],[0.7,0.2]]<br>Boş dizi otomatik rota kullanır.</div>`;
+ } else if(selected.type==='creature') {
+  const c=s.minimaladam;tag='MINIMALADAM';html='<h2>MinimalAdam karakteri</h2><p class="intro">Karakter ana bağlantıya gerçekten temas etmeli. Yeri değiştikçe bağlantıya tekrar hizalanabilir.</p>';
+  html+=input('action',c.action||'connect','select',[['connect','Bağla'],['inspect','İncele'],['carry','Taşı'],['guard','Koru']],'Eylem')+input('edge',c.edge,'select',s.edges.map((e,i)=>[i,`${i+1} · ${e.from} → ${e.to}`]),'Etkileşilen bağlantı');
+  html+=input('scale',c.scale||1,'number',[],'Ölçek (0.65–1.5)')+`<div class="prop-actions"><button id="snap">Bağlantıya hizala</button></div>`;
+ } else {
+  html='<h2>Proje ayarları</h2><p class="intro">Kaynak tanımlı teknik şema. Etiketleri ve çizim düzenini değiştir; sistem mimarisi uydurulmaz.</p>';
+  html+=input('concept',s.concept,'textarea',[],'Kavramsal açıklama')+input('mode',s.mode,'select',MODES.map(x=>[x,names[x]]),'Teknik mod');
+  html+=`<div class="info-box">Kaynak: P3 JSON v1<br>Çizim: 1600 × 900 · 16:9<br>Üretim: SVG + PNG + JSON<br>Seçili stil: ${esc(styleLabels[project.style])}</div>`;
+ }
+ $('selection-type').textContent=tag;$('properties').innerHTML=html;
+}
+function segmentHitsBox(p,q,b,pad=7){
+ const [l,t,r,bt]=[b[0]-pad,b[1]-pad,b[2]+pad,b[3]+pad];
+ if(Math.abs(p[0]-q[0])<.01)return l<=p[0]&&p[0]<=r&&Math.max(Math.min(p[1],q[1]),t)<Math.min(Math.max(p[1],q[1]),bt);
+ if(Math.abs(p[1]-q[1])<.01)return t<=p[1]&&p[1]<=bt&&Math.max(Math.min(p[0],q[0]),l)<Math.min(Math.max(p[0],q[0]),r);
+ for(let i=1;i<40;i++){const a=i/40,x=p[0]+(q[0]-p[0])*a,y=p[1]+(q[1]-p[1])*a;if(l<x&&x<r&&t<y&&y<bt)return true}return false;
+}
+let latestAudit=null;
+let qaAcceptedSnapshot=null;
+function quality(){
+ const canvas=document.createElement('canvas').getContext('2d');
+ const measureText=(text,size)=>{canvas.font=`${size}px Segoe UI, Arial, sans-serif`;return canvas.measureText(text).width};
+ if($('qa-accept').checked&&qaAcceptedSnapshot!==JSON.stringify(project)){$('qa-accept').checked=false;qaAcceptedSnapshot=null;}
+ latestAudit=auditProject(project,{measureText});
+ const {issues,summary,manualChecks}=latestAudit;
+ if(legacySourceNote)issues.push({id:'LEGACY_P3_SOURCE',severity:'warning',category:'Kaynak doğrulaması',message:'Eski P3 SVG kurtarma: mod/eylem bilgisi tam kanıtlanmadı; kaynak JSON ile kontrol et.',subject:null});
+ const warnings=issues.filter(i=>i.severity==='warning').length,errors=issues.filter(i=>i.severity==='error').length;
+ summary.errors=errors;summary.warnings=warnings;summary.automatedStatus=errors?'FAIL':warnings?'REVIEW':'PASS';
+ const status=$('status');status.className=errors?'status-error':warnings?'status-warn':'status-ok';
+ status.textContent=errors?`● ${errors} hata`:warnings?`● ${warnings} uyarı`:'● QA PASS';
+ $('quality').innerHTML=errors?`<strong>QA FAIL:</strong> ${errors} hata. Dışa aktarma engellendi.`:warnings?`<strong>QA REVIEW:</strong> ${warnings} uyarı incelenmeli. Uyarılara rağmen dışa aktarmak için onay ver.`:'<strong>QA PASS:</strong> Tanımlı otomatik kontroller geçti. Anlam ve estetik ayrıca incelenmeli.';
+ $('qa-counts').textContent=`${summary.automatedStatus} · ${errors} hata · ${warnings} uyarı`;
+ $('qa-findings').innerHTML=issues.length?issues.map(i=>`<button type="button" class="qa-finding ${i.severity}" data-qa-id="${esc(i.id)}"><span>${i.severity==='error'?'HATA':'UYARI'} · ${esc(i.category)}</span><small>${esc(i.message)}</small></button>`).join(''):'<p class="qa-ok">Otomatik kurallarda sorun bulunmadı.</p>';
+ $('qa-manual').textContent=`${manualChecks.length} manuel kontrol henüz doğrulanmadı.`;
+ $('qa-preflight').hidden=warnings===0;
+ $('qa-report').disabled=false;
+ return {errors,warnings};
+}
+$('qa-findings').addEventListener('click',e=>{
+ const el=e.target.closest('[data-qa-id]');if(!el)return;
+ const item=latestAudit?.issues.find(x=>x.id===el.dataset.qaId);
+ if(item?.subject){selected=item.subject;renderAll();}
+});
+$('qa-accept').addEventListener('change',()=>{qaAcceptedSnapshot=$('qa-accept').checked?JSON.stringify(project):null;});
+$('qa-report').onclick=()=>{
+ quality();latestAudit.provenance={mode:project.spec.mode,concept:project.spec.concept,sourceProject:JSON.parse(JSON.stringify(project)),warningsAcknowledged:!!($('qa-accept').checked&&qaAcceptedSnapshot===JSON.stringify(project))};downloadBlob(`${slug()}-qa-report.json`,new Blob([JSON.stringify(latestAudit,null,2)],{type:'application/json;charset=utf-8'}));
+ toast('P5 kalite raporu JSON indirildi. Manuel maddeler doğrulanmadı.');
+};
+
+function renderCanvas(){const svg=$('diagram');let output;try{output=exportSVG(project)}catch(e){quality();toast(e.message);return}
+ const parsed=new DOMParser().parseFromString(output,'image/svg+xml');svg.replaceChildren(...Array.from(parsed.documentElement.childNodes).map(x=>document.importNode(x,true)));
+ if(selected.type==='node')svg.querySelectorAll('[data-node-id]').forEach(el=>el.classList.toggle('selected',el.getAttribute('data-node-id')===selected.id));
+ if(selected.type==='edge')svg.querySelectorAll('[data-edge-index]').forEach(el=>el.classList.toggle('selected',+el.getAttribute('data-edge-index')===selected.id));
+ if(selected.type==='creature')svg.querySelector('#minimaladam')?.classList.add('selected');
+}
+function renderAll(){renderCanvas();inspector();quality();$('project-label').textContent=names[project.spec.mode];$('concept-title').textContent=project.spec.concept;$('mode-label').textContent=names[project.spec.mode];$('counter').textContent=`${project.spec.nodes.length} düğüm · ${project.spec.edges.length} bağlantı`;document.querySelectorAll('[data-style]').forEach(b=>b.classList.toggle('selected',b.dataset.style===project.style));$('connect').classList.toggle('active',tool==='connect');$('interaction').textContent=tool==='connect'?(connectSource?`${byId(connectSource)?.label||connectSource} seçildi. Şimdi hedef düğüme tıkla.`:'Bağlamak için önce kaynak düğüme, sonra hedef düğüme tıkla.'):'Düğümü tutup taşıyabilir veya bir bağlantı seçebilirsin.';$('undo').disabled=!history.length;$('redo').disabled=!redoStack.length;}
+function toWorld(event){const svg=$('diagram'),p=svg.createSVGPoint();p.x=event.clientX;p.y=event.clientY;const ctm=svg.getScreenCTM();if(!ctm)return [0,0];const q=p.matrixTransform(ctm.inverse());return [q.x,q.y]}
+$('diagram').addEventListener('pointerdown',e=>{
+ if(e.button!==0)return;
+ const nodeEl=e.target.closest('[data-node-id]'),edgeEl=e.target.closest('[data-edge-index]'),c=e.target.closest('[data-creature]');
+ if(nodeEl){const id=nodeEl.getAttribute('data-node-id');if(tool==='connect'){
+   if(!connectSource){connectSource=id;renderAll();return}
+   if(connectSource===id){toast('Kaynak ve hedef farklı olmalı');return}
+   if(project.spec.edges.length>=12){toast('P3 en fazla 12 bağlantıyı destekler');return}
+   if(project.spec.edges.some(e=>e.from===connectSource&&e.to===id&&e.kind==='data')){toast('Aynı veri bağlantısı zaten var');return}
+   checkpoint();project.spec.edges.push({from:connectSource,to:id,kind:'data'});selected={type:'edge',id:project.spec.edges.length-1};tool='select';connectSource=null;renderAll();toast('Bağlantı eklendi');return;
+ }
+  selected={type:'node',id};const world=toWorld(e),n=byId(id);drag={type:'node',id,origin:[...world],initial:[n.x,n.y],before:JSON.stringify(project)};$('diagram').setPointerCapture(e.pointerId);renderAll();return;
+ }
+ if(c){selected={type:'creature'};const world=toWorld(e);drag={type:'creature',origin:world,initial:[project.spec.minimaladam.x,project.spec.minimaladam.y],before:JSON.stringify(project)};$('diagram').setPointerCapture(e.pointerId);renderAll();return}
+ if(edgeEl){selected={type:'edge',id:+edgeEl.getAttribute('data-edge-index')};renderAll();return}
+ if(tool==='connect'){connectSource=null;tool='select'}selected={type:'project'};renderAll();
+});
+$('diagram').addEventListener('pointermove',e=>{
+ if(!drag)return;const world=toWorld(e),dx=(world[0]-drag.origin[0])/W,dy=(world[1]-drag.origin[1])/H;
+ if(drag.type==='node'){const n=byId(drag.id);if(!n)return;n.x=norm(clamp(drag.initial[0]+dx,n.w/2+.04,1-n.w/2-.04));n.y=norm(clamp(drag.initial[1]+dy,n.h/2+.08,1-n.h/2-.08));snapMinimalAdam(project.spec)}
+ if(drag.type==='creature'){const c=project.spec.minimaladam;c.x=norm(clamp(drag.initial[0]+dx,.065,.935));c.y=norm(clamp(drag.initial[1]+dy,.12,.9))}
+ renderCanvas();quality();
+});
+function endDrag(){if(!drag)return;const original=drag.before;if(JSON.stringify(project)!==original){history.push(original);if(history.length>70)history.shift();redoStack=[]}drag=null;renderAll()}
+$('diagram').addEventListener('pointerup',endDrag);$('diagram').addEventListener('pointercancel',endDrag);
+$('properties').addEventListener('change',ev=>{
+ const field=ev.target.dataset.field;if(!field)return;const value=ev.target.value;let obj=selected.type==='node'?byId(selected.id):selected.type==='edge'?project.spec.edges[selected.id]:selected.type==='creature'?project.spec.minimaladam:project.spec;
+ if(!obj)return;
+ let v=value;
+ if(['x','y','w','h'].includes(field)){v=+value/100;if(!Number.isFinite(v)){toast('Sayısal değer gerekli');return}v=norm(v)}
+ else if(field==='scale'){v=+value;if(!Number.isFinite(v)||v<.65||v>1.5){toast('Ölçek 0.65–1.5 olmalı');return}}
+ else if(field==='edge'){v=+value}
+ else if(field==='via'){try{v=JSON.parse(value);if(!Array.isArray(v)||v.length>6||v.some(p=>!Array.isArray(p)||p.length!==2||p.some(x=>!Number.isFinite(x)||x<=.0175||x>=.9825)))throw Error();}catch{toast('Ara noktalar [[0.4,0.2]] biçiminde olmalı');return}}
+ else if(field==='from_port'||field==='to_port'){v=value==='auto'?undefined:value}
+ else if(field==='label'||field==='concept'){
+  v=value.normalize('NFC');if(/[<>\r\n\t]/.test(v)&&field==='label'){toast('Etiket tek satır olmalı');return}
+  const lim=selected.type==='edge'?22:field==='label'?32:120;if(v.length>lim||!v.trim()){if(selected.type!=='edge'||v.length>lim){toast(`Metin en fazla ${lim} karakter olmalı`);return}}
+ }
+ if(['from','to'].includes(field)&&selected.type==='edge'){
+   const other=field==='from'?'to':'from';if(v===obj[other]){toast('Kaynak ve hedef farklı olmalı');return}
+ }
+ checkpoint();if(v===undefined)delete obj[field];else obj[field]=v;
+ if(selected.type==='node'||selected.type==='edge'||selected.type==='creature')snapMinimalAdam(project.spec);
+ renderAll();
+});
+$('properties').addEventListener('click',e=>{if(e.target.id==='snap'){checkpoint();snapMinimalAdam(project.spec);renderAll();toast('MinimalAdam bağlantıya hizalandı')}});
+$('add-node').onclick=()=>{
+ const s=project.spec;if(s.nodes.length>=8){toast('P3 en fazla 8 düğüm destekler');return}
+ const pts=[[.50,.73],[.25,.70],[.78,.7],[.5,.5],[.25,.47],[.77,.47],[.18,.25],[.8,.25],[.5,.25]];
+ const w=.17,h=.16;let found=null;
+ for(const [x,y] of pts){const n={x,y,w,h};if(box(n)[0]<64||box(n)[2]>W-64||box(n)[1]<70||box(n)[3]>H-70)continue;if(!s.nodes.some(old=>boundsOverlap(box(old),box(n),28))){found={x,y};break}}
+ if(!found){toast('Yeterli boşluk yok: önce düğümleri taşı');return}
+ let idx=1;while(s.nodes.some(n=>n.id===`yeni_${idx}`))idx++;
+ const n={id:`yeni_${idx}`,label:'Yeni Düğüm',kind:'process',...found,w,h,accent:'black'};
+ checkpoint();s.nodes.push(n);selected={type:'node',id:n.id};renderAll();toast('Yeni düğüm eklendi');
+};
+$('connect').onclick=()=>{tool=tool==='connect'?'select':'connect';connectSource=null;renderAll()};
+function deleteSelected(){const s=project.spec;
+ if(selected.type==='node'){
+  if(s.nodes.length<=2){toast('En az 2 düğüm gerekli');return}
+  const kept=s.edges.map((e,i)=>({...e,oldIndex:i})).filter(e=>e.from!==selected.id&&e.to!==selected.id);
+  if(!kept.length){toast('Silme sonucunda hiç bağlantı kalmaz; önce bağlantı oluştur');return}
+  checkpoint();const oldIndex=s.minimaladam.edge;s.nodes=s.nodes.filter(n=>n.id!==selected.id);s.edges=kept.map(({oldIndex,...e})=>e);const now=kept.findIndex(e=>e.oldIndex===oldIndex);s.minimaladam.edge=now>=0?now:0;snapMinimalAdam(s);
+ }else if(selected.type==='edge'){
+  if(s.edges.length<=1){toast('En az 1 bağlantı gerekli');return}
+  checkpoint();s.edges.splice(selected.id,1);if(s.minimaladam.edge===selected.id)s.minimaladam.edge=0;else if(s.minimaladam.edge>selected.id)s.minimaladam.edge--;snapMinimalAdam(s);
+ }else{toast('Önce bir düğüm veya bağlantı seç');return}
+ selected={type:'project'};renderAll();toast('Seçim silindi');
+}
+$('delete').onclick=deleteSelected;$('undo').onclick=()=>applyHistory(history,redoStack);$('redo').onclick=()=>applyHistory(redoStack,history);
+document.querySelectorAll('[data-style]').forEach(btn=>btn.onclick=()=>{if(project.style===btn.dataset.style)return;checkpoint();project.style=btn.dataset.style;renderAll()});
+$('examples').onchange=()=>{project=initialProject(SAMPLES[$('examples').value]);legacySourceNote=false;history=[];redoStack=[];selected={type:'project'};tool='select';renderAll();toast('Örnek proje açıldı')};
+$('grid').onclick=()=>{grid=!grid;$('canvas-wrap').classList.toggle('grid-active',grid);$('grid').style.color=grid?'#d2782f':''};
+function setZoom(z){zoom=clamp(z,.6,2);$('canvas-size').style.width=`${zoom*100}%`;$('zoom-label').textContent=`${Math.round(zoom*100)}%`}
+$('zoom-in').onclick=()=>setZoom(zoom+.2);$('zoom-out').onclick=()=>setZoom(zoom-.2);$('reset-view').onclick=()=>setZoom(1);
+function downloadBlob(name,blob){const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),1200)}
+const slug=()=>String(project.spec.mode||'diagram')+'-minimaladam';
+function sourceWarning(){const results=quality();if(results.errors){toast('QA FAIL: Hatalar giderilmeden dışa aktarılamaz');return false}if(results.warnings&&(!$('qa-accept').checked||qaAcceptedSnapshot!==JSON.stringify(project))){toast(`QA REVIEW: ${results.warnings} uyarıyı incele ve onay kutusunu işaretle`);$('qa-accept').focus();return false}if(results.warnings)toast(`QA REVIEW: ${results.warnings} uyarı kabul edilerek aktarılıyor`);return true}
+$('save-project').onclick=()=>{if(!sourceWarning())return;downloadBlob(`${slug()}.project.json`,new Blob([JSON.stringify(project,null,2)],{type:'application/json;charset=utf-8'}));toast('Düzenlenebilir proje kaydedildi')};
+$('export-p3').onclick=()=>{if(!sourceWarning())return;downloadBlob(`${slug()}.json`,new Blob([JSON.stringify(project.spec,null,2)],{type:'application/json;charset=utf-8'}));toast('P3 JSON indirildi')};
+$('export-svg').onclick=()=>{if(!sourceWarning())return;downloadBlob(`${slug()}.svg`,new Blob([exportSVG(project)],{type:'image/svg+xml;charset=utf-8'}));toast('Düzenlenebilir SVG indirildi (proje metadata içerir)')};
+$('export-png').onclick=async()=>{if(!sourceWarning())return;try{
+ const txt=exportSVG(project);const svgblob=new Blob([txt],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(svgblob);
+ const image=new Image();await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('SVG rasterize edilemedi'));image.src=url});
+ const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.drawImage(image,0,0,W,H);URL.revokeObjectURL(url);
+ const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw Error('PNG oluşturulamadı');downloadBlob(`${slug()}.png`,blob);toast('PNG kaydedildi');
+ }catch(e){toast('PNG hatası: '+e.message)}};
+$('import').onclick=()=>$('file').click();
+$('file').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;
+ try{const text=await file.text();const pr=file.name.toLowerCase().endsWith('.svg')?importSVGText(text):unboxProject(JSON.parse(text));
+  project=pr;legacySourceNote=file.name.toLowerCase().endsWith('.svg')&&!text.includes('minimaladam-editable-spec')&&!text.includes('xiaohei-editable-spec');selected={type:'project'};history=[];redoStack=[];tool='select';connectSource=null;renderAll();toast(legacySourceNote?'Eski P3 SVG yaklaşık içe aktarıldı. Mod/eylem bilgisini JSON ile karşılaştır.':file.name.toLowerCase().endsWith('.svg')?'P4 SVG tüm proje verisiyle içe aktarıldı':'Proje yüklendi');
+ }catch(err){toast('Dosya açılamadı: '+err.message)}finally{e.target.value=''};
+};
+document.addEventListener('keydown',e=>{
+ const el=document.activeElement;if(el?.matches('input,select,textarea')||el?.isContentEditable)return;
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();applyHistory(e.shiftKey?redoStack:history,e.shiftKey?history:redoStack)}
+ else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();applyHistory(redoStack,history)}
+ else if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();deleteSelected()}
+ else if(e.key.toLowerCase()==='n')$('add-node').click();
+ else if(e.key.toLowerCase()==='c')$('connect').click();
+ else if(e.key==='Escape'){selected={type:'project'};tool='select';connectSource=null;renderAll()}
+});
+renderAll();
+
+</script>
+</body>
+</html>

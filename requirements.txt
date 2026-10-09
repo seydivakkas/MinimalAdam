@@ -1,0 +1,3 @@
+Pillow>=10,<13
+fonttools>=4.40,<6
+PyYAML>=6,<7

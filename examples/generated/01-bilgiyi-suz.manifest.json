@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "dimensions": [
+    1600,
+    900
+  ],
+  "font_file": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "base_sha256": "9bb8d15aab266596765f97b1f14245700ff4fa43e11667b857c357b9c31e418c",
+  "labels_sha256": "890f1468c04c00907f3e9580383934fbad58f48c2ebebd82811bbd7a95502ee5",
+  "labels": [
+    {
+      "text": "Dağınık bilgi",
+      "x": 0.275,
+      "y": 0.305,
+      "color": "black",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Süzgeç",
+      "x": 0.5,
+      "y": 0.305,
+      "color": "blue",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Net fikir",
+      "x": 0.7,
+      "y": 0.305,
+      "color": "black",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Gereksiz",
+      "x": 0.428,
+      "y": 0.83,
+      "color": "red",
+      "size": 35,
+      "anchor": "center"
+    }
+  ],
+  "outputs": {
+    "image": "01-bilgiyi-suz.png",
+    "text_png": "01-bilgiyi-suz.text.png",
+    "text_svg": "01-bilgiyi-suz.labels.svg"
+  },
+  "qa": {
+    "turkish_glyphs_present": true,
+    "no_label_collisions": true,
+    "no_clipping": true,
+    "visual_quality_not_automatically_verified": true
+  }
+}

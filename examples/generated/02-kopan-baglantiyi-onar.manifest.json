@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "dimensions": [
+    1600,
+    900
+  ],
+  "font_file": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "base_sha256": "d6ad8d4c887f54c6438fdeb71c2863b6e3f7b65aee7ffdb41569870064e57217",
+  "labels_sha256": "039b73e0d905dbc66b2d8f002a07e858b8ce39917b86b808b0e7f1fe36f60452",
+  "labels": [
+    {
+      "text": "Girdi",
+      "x": 0.31,
+      "y": 0.365,
+      "color": "black",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Kopukluk",
+      "x": 0.5,
+      "y": 0.32,
+      "color": "red",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Çıktı",
+      "x": 0.69,
+      "y": 0.365,
+      "color": "black",
+      "size": 40,
+      "anchor": "center"
+    },
+    {
+      "text": "Onarım",
+      "x": 0.5,
+      "y": 0.82,
+      "color": "blue",
+      "size": 35,
+      "anchor": "center"
+    }
+  ],
+  "outputs": {
+    "image": "02-kopan-baglantiyi-onar.png",
+    "text_png": "02-kopan-baglantiyi-onar.text.png",
+    "text_svg": "02-kopan-baglantiyi-onar.labels.svg"
+  },
+  "qa": {
+    "turkish_glyphs_present": true,
+    "no_label_collisions": true,
+    "no_clipping": true,
+    "visual_quality_not_automatically_verified": true
+  }
+}

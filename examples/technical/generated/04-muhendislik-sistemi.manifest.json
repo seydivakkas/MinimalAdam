@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "mode": "engineering-system",
+  "concept": "Temsili sensör-denetleyici-eyleyici geri besleme sistemi",
+  "source_spec": "04-muhendislik-sistemi.json",
+  "source_sha256": "ddd66b96bc212df584568a335e006e784656696fb6b18e6775578d179b8ed1f0",
+  "font": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "dimension": [
+    1600,
+    900
+  ],
+  "counts": {
+    "nodes": 4,
+    "edges": 4,
+    "labels": 5,
+    "minimaladam": 1
+  },
+  "outputs": {
+    "base": "04-muhendislik-sistemi.base.svg",
+    "labels": "04-muhendislik-sistemi.labels.svg",
+    "svg": "04-muhendislik-sistemi.svg",
+    "png": "04-muhendislik-sistemi.png"
+  },
+  "sha256": {
+    "base": "49afb26a8bcc83356f6a3c003dac5a85ef3a4cff5c1b77434cb625e7c1420f3e",
+    "labels": "754f6362bf77390fa56033dcd6509d25a9bd1ac1dc6a3c51caacbfbab57083ad",
+    "svg": "d01da8aceaa1dc37275c70a4265976a8346c5a16e5107b7a2168fe1fb3b1634a",
+    "png": "db6e2ad6cc6fa65e1c079175836b7190942ea069589cfb14da326c69c9b34027"
+  },
+  "qa": {
+    "nfc_strings": true,
+    "glyphs_checked": true,
+    "node_collisions_checked": true,
+    "edge_hits_other_nodes_checked": true,
+    "label_bounds_checked": true,
+    "label_label_collisions_checked": true,
+    "minimaladam_action_contact_checked": true,
+    "semantic_structure_not_automatically_verified": true,
+    "manual_visual_review_required": true
+  }
+}

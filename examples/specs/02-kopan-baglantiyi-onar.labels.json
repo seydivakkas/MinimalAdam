@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "labels": [
+    {
+      "text": "Girdi",
+      "x": 0.31,
+      "y": 0.365,
+      "color": "black",
+      "size": 40
+    },
+    {
+      "text": "Kopukluk",
+      "x": 0.5,
+      "y": 0.32,
+      "color": "red",
+      "size": 40
+    },
+    {
+      "text": "Çıktı",
+      "x": 0.69,
+      "y": 0.365,
+      "color": "black",
+      "size": 40
+    },
+    {
+      "text": "Onarım",
+      "x": 0.5,
+      "y": 0.82,
+      "color": "blue",
+      "size": 35
+    }
+  ]
+}

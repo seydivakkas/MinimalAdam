@@ -1,0 +1,548 @@
+{
+  "product": "MinimalAdam",
+  "version": "0.6.1",
+  "upstream": "https://github.com/helloianneo/ian-xiaohei-illustrations",
+  "license": "MIT (original text retained in LICENSE)",
+  "platform_tested": "Linux; Chromium browser; Windows Python 3.14 fix pending Windows CI",
+  "windows_acceptance": "NOT_RUN",
+  "github_publish": "NOT_DONE",
+  "test_results": {
+    "python": 40,
+    "javascript": 22,
+    "browser_e2e": [
+      "P4 PASS",
+      "P5 PASS"
+    ],
+    "static_package_checks": "PASS"
+  },
+  "limitations": [
+    "PNG platform pixel identity is not guaranteed across fonts",
+    "P1 source SVG regeneration may require optional Cairo",
+    "AI image-generation model is not bundled",
+    "No verified semantic architecture",
+    "No Windows acceptance result yet"
+  ],
+  "file_count": 130,
+  "files": {
+    ".github/workflows/windows-acceptance.yml": {
+      "bytes": 1895,
+      "sha256": "d36353d62059e84c8b4e4f1cb982c9b7b51963ebc58871e37d00f31189be3afc"
+    },
+    ".gitignore": {
+      "bytes": 200,
+      "sha256": "d1e911880d0492be5cffaa7d843bbc3e901a9f70d5ffd0c7ab5eb72048595002"
+    },
+    "ACCEPTANCE.md": {
+      "bytes": 1809,
+      "sha256": "a182acd179c013d0a248ecec237b439eae7e6ce77542c1b73d0fffd0ec25cd5d"
+    },
+    "CHANGELOG.md": {
+      "bytes": 6214,
+      "sha256": "4ee4e1e98a3cde3fd87c703ccdbfa0697e3d5775736088745caacf0de0d19a36"
+    },
+    "LICENSE": {
+      "bytes": 1060,
+      "sha256": "b995a6b845825b06461cbc5d7ace91d05fe0fe6d061e1c17bffc31964d2684aa"
+    },
+    "MinimalAdam-Studio.cmd": {
+      "bytes": 153,
+      "sha256": "60b59d6278192a173c23cdd00d4ec4b272d0e7184d31b81a47829584ba4b968d"
+    },
+    "NOTICE.md": {
+      "bytes": 1658,
+      "sha256": "c55de62b83aca3a0021f735e7b7305f02b9fcd5671fd2e3b7956771e280e9106"
+    },
+    "Publish-MinimalAdam.cmd": {
+      "bytes": 300,
+      "sha256": "8d0e1244709a264efb1497043eea4616ead1455e497e74121a9b72ed14739e6a"
+    },
+    "README.md": {
+      "bytes": 21391,
+      "sha256": "2ebb5f0fefa1984798912621a91e21ba9c02595c660f7bff9d0ec58ddd111a94"
+    },
+    "WINDOWS_FIX.md": {
+      "bytes": 1907,
+      "sha256": "bdc1c915097eae9c830ea0dacf549376732df099324eb5d7f1261e862b047177"
+    },
+    "editor/core.mjs": {
+      "bytes": 17174,
+      "sha256": "9c981d9d6f86a71f10c5dcdcc00994e92fddc5093e0a41d1eba500fe094c08c1"
+    },
+    "editor/index.html": {
+      "bytes": 6292,
+      "sha256": "2f259e76cf8a16098b6e0b620f7e6bee047e9ddf4a509e0d4f10c63084488877"
+    },
+    "editor/offline.html": {
+      "bytes": 68935,
+      "sha256": "443bd6045a1098c4dc74997290447e9eb5854a25ec5b53c0152f406e29c6dc77"
+    },
+    "editor/quality.mjs": {
+      "bytes": 8593,
+      "sha256": "0ba38000ece5d57585eb3e00dba3a3bf1b48e40f8c81faf38d5debac42c73a63"
+    },
+    "editor/samples.mjs": {
+      "bytes": 6532,
+      "sha256": "010b44fbb557343ef020f902207c2ba9edfd7b0053b7d3f69e331c74249789bb"
+    },
+    "editor/studio.css": {
+      "bytes": 9328,
+      "sha256": "d7fb110afd2d2d7ea4c879a8362db4010440d9d98a4602a50617c8d9a20c246a"
+    },
+    "editor/studio.mjs": {
+      "bytes": 21707,
+      "sha256": "e5a3027f547669f8e7769f6518631bf16f84975d9b4775f48a7c981331288a27"
+    },
+    "examples/editor/studio-preview.png": {
+      "bytes": 161623,
+      "sha256": "7c8a4aca2e684a1ce6784696afee9cbc5791551ff8c3e7accaa2f9144c682bcb"
+    },
+    "examples/editor/studio-qa-preview.png": {
+      "bytes": 176909,
+      "sha256": "f3f9f5569ed49862f5817eaffef386b25a3a3ca6d6c3188f126edb35fc3953be"
+    },
+    "examples/generated/01-bilgiyi-suz.base.png": {
+      "bytes": 42790,
+      "sha256": "9bb8d15aab266596765f97b1f14245700ff4fa43e11667b857c357b9c31e418c"
+    },
+    "examples/generated/01-bilgiyi-suz.labels.svg": {
+      "bytes": 714,
+      "sha256": "eb3241ceac4ea98aa3f175bd6633d3f79da040f411b61f226ba05c7200f3ce89"
+    },
+    "examples/generated/01-bilgiyi-suz.manifest.json": {
+      "bytes": 1242,
+      "sha256": "93547833783d59e5920e08cc7204370426eba4162ceab4148b3cb4c9d45bc62d"
+    },
+    "examples/generated/01-bilgiyi-suz.png": {
+      "bytes": 55413,
+      "sha256": "3ef037d124158f812f0ca2b451c95f71e3c42b07904be2fccd5d5f817ba9072a"
+    },
+    "examples/generated/01-bilgiyi-suz.text.png": {
+      "bytes": 16220,
+      "sha256": "5c9a4283e5b9bfc9589e6fef40d2a3fdfcc4121f3fea26cbf1ff8dc3ca407087"
+    },
+    "examples/generated/02-kopan-baglantiyi-onar.base.png": {
+      "bytes": 36194,
+      "sha256": "d6ad8d4c887f54c6438fdeb71c2863b6e3f7b65aee7ffdb41569870064e57217"
+    },
+    "examples/generated/02-kopan-baglantiyi-onar.labels.svg": {
+      "bytes": 701,
+      "sha256": "8552ecc78f6f5f2dc71712292f4b5309b68b572f918c578aa11501496f80efd2"
+    },
+    "examples/generated/02-kopan-baglantiyi-onar.manifest.json": {
+      "bytes": 1256,
+      "sha256": "f63b04a4eda39041d641342adbe0aa017b6e153987b4187f360207f82b4b8a2a"
+    },
+    "examples/generated/02-kopan-baglantiyi-onar.png": {
+      "bytes": 44619,
+      "sha256": "5f9b762e56d54f2de8975412dc388906a0e24534996a0ad41a261f8fe19b296a"
+    },
+    "examples/generated/02-kopan-baglantiyi-onar.text.png": {
+      "bytes": 13070,
+      "sha256": "ed49e045917cf48b62b09ee83bbc2f1f7407577beb783010c12a2de4e491ffc7"
+    },
+    "examples/generated/03-kanitla-karar-ver.base.png": {
+      "bytes": 51415,
+      "sha256": "da5d9d0390a83250e625eac270e51e56d7428b8ef7f1cf854bf3dc629b4f0570"
+    },
+    "examples/generated/03-kanitla-karar-ver.labels.svg": {
+      "bytes": 549,
+      "sha256": "e2b98390c55a9c76c8026753b9deb4c54853dcc7c233aa27a4c67b9a0fe3279d"
+    },
+    "examples/generated/03-kanitla-karar-ver.manifest.json": {
+      "bytes": 1105,
+      "sha256": "2a5df11d775a8e8a966b7aa848d3b8c0ccc4c5f6582712f35c175bf9d14e0965"
+    },
+    "examples/generated/03-kanitla-karar-ver.png": {
+      "bytes": 58640,
+      "sha256": "ff1a35bbcb78b87d17c33aebcee5d84f293301f1529ae94edb13a4b9336c2697"
+    },
+    "examples/generated/03-kanitla-karar-ver.text.png": {
+      "bytes": 11400,
+      "sha256": "01296f4e5ad03ca876f7e322647fb939ac7a91c81a129af58be30e9f29c4d2b6"
+    },
+    "examples/prompts.md": {
+      "bytes": 3101,
+      "sha256": "2fb9a9e0590c030f32af8f559d99f8d238a42afc0710bf5b2c230b2e491520ea"
+    },
+    "examples/qa/03-ml-pipeline.qa-report.json": {
+      "bytes": 1667,
+      "sha256": "e8df834de6a5ba1da6ab0efdb578af4394192d5f80f843570f10bf9b89857837"
+    },
+    "examples/qa/03-ml-pipeline.raster-report.json": {
+      "bytes": 612,
+      "sha256": "2000c7b41fccc3acbc084fe0edb6f6d10ca36113e700c7ab68657c02b2dba7b1"
+    },
+    "examples/qa/README.md": {
+      "bytes": 602,
+      "sha256": "aaa1843889f8163b09384356c90af4f4d66cb576cc31a61385bbc3bb4ff2a760"
+    },
+    "examples/qa/ornek-hata-overflow.qa-report.json": {
+      "bytes": 2023,
+      "sha256": "3f35ba66aa5c209ae858b4779bb002dcc0ae99a29aa27d0157b87cd38bcf003b"
+    },
+    "examples/qa/ornek-hata-overflow.spec.json": {
+      "bytes": 1658,
+      "sha256": "a05dde359a50ea917194cb173cf02c2e59b7cd761283662f91bd3d1cc3913f0a"
+    },
+    "examples/specs/01-bilgiyi-suz.base.svg": {
+      "bytes": 2626,
+      "sha256": "0ed948ded59cd08122fc0c7abbb66acba3a0b1dbf1adc389c42edd670edc7fb0"
+    },
+    "examples/specs/01-bilgiyi-suz.labels.json": {
+      "bytes": 502,
+      "sha256": "890f1468c04c00907f3e9580383934fbad58f48c2ebebd82811bbd7a95502ee5"
+    },
+    "examples/specs/02-kopan-baglantiyi-onar.base.svg": {
+      "bytes": 2468,
+      "sha256": "e4ab3bac45d03b578659b75aac6fd90dc28eb469aeafccdff33a15cbf5574c29"
+    },
+    "examples/specs/02-kopan-baglantiyi-onar.labels.json": {
+      "bytes": 486,
+      "sha256": "039b73e0d905dbc66b2d8f002a07e858b8ce39917b86b808b0e7f1fe36f60452"
+    },
+    "examples/specs/03-kanitla-karar-ver.base.svg": {
+      "bytes": 2516,
+      "sha256": "d6f6a4febd9c1240a9cb980c017f78b311d50a3b0c6f1e18fad35ca2b6cd2344"
+    },
+    "examples/specs/03-kanitla-karar-ver.labels.json": {
+      "bytes": 373,
+      "sha256": "a83bca38535caf680e676ddb49fc84d4551e5bb65db45badc7b5c90030d5c811"
+    },
+    "examples/technical/README.md": {
+      "bytes": 1271,
+      "sha256": "c32223d70521e9e78cccb5ada686327e4cf5a0f38fa7806770c37823bafb61f4"
+    },
+    "examples/technical/generated/01-yazilim-mimarisi.base.svg": {
+      "bytes": 4704,
+      "sha256": "dc7b7704c8482a793b11b1876600e18d039bfdd56724f997d77535e1a486dc56"
+    },
+    "examples/technical/generated/01-yazilim-mimarisi.labels.svg": {
+      "bytes": 982,
+      "sha256": "5ea2f84e984a9f54f0000306d018961e1f9fb3f82ae1dc88ebab8d8a4c59e7e9"
+    },
+    "examples/technical/generated/01-yazilim-mimarisi.manifest.json": {
+      "bytes": 1396,
+      "sha256": "b71614b92dbd0015dc279aa9b0a199574568d71f7e0033073289cf27f2225b2b"
+    },
+    "examples/technical/generated/01-yazilim-mimarisi.png": {
+      "bytes": 17886,
+      "sha256": "9f28697f9cd8ae394043185196a255d2541d38f8fe25744d96a76d9bf7788444"
+    },
+    "examples/technical/generated/01-yazilim-mimarisi.svg": {
+      "bytes": 5591,
+      "sha256": "ae1534afc5d9067bb481328916c76ceb060ca049b62ed8b96e1dedcbe7090ae7"
+    },
+    "examples/technical/generated/02-veri-akisi.base.svg": {
+      "bytes": 3941,
+      "sha256": "724f71f63468d467062aa4166a5214ced9eb48ece1354e016b75caca486d4196"
+    },
+    "examples/technical/generated/02-veri-akisi.labels.svg": {
+      "bytes": 796,
+      "sha256": "e23fe55245e0ba919a6db89003e06ee2001a699fc4e7209324273a7d265a20a0"
+    },
+    "examples/technical/generated/02-veri-akisi.manifest.json": {
+      "bytes": 1353,
+      "sha256": "7383d59d5f836410c45fb991fc57d9a98a77b295a645f882bbb97faea854b6b5"
+    },
+    "examples/technical/generated/02-veri-akisi.png": {
+      "bytes": 13624,
+      "sha256": "b1a810afb069b24de4a611f072d59847ed21b15e8181bdd32f3ed2a760f054f7"
+    },
+    "examples/technical/generated/02-veri-akisi.svg": {
+      "bytes": 4642,
+      "sha256": "af01638a946c5dababc801e1bcf8afa340fd404df6d060089f8bfc8d5b850cf6"
+    },
+    "examples/technical/generated/03-ml-pipeline.base.svg": {
+      "bytes": 4607,
+      "sha256": "a972ef6b354364f302a3584baf363b813ebb7dbe36bcd5e384f5f8533ad5d559"
+    },
+    "examples/technical/generated/03-ml-pipeline.labels.svg": {
+      "bytes": 974,
+      "sha256": "5b00b2af3d3f2e1538cb4f7dc8dc0fe9752faa535dcd7b5aed5b628d5bad62de"
+    },
+    "examples/technical/generated/03-ml-pipeline.manifest.json": {
+      "bytes": 1364,
+      "sha256": "7b431f05ac0a173555dc5d748b18dd90693fe4a789922961bd940e299b72e2d2"
+    },
+    "examples/technical/generated/03-ml-pipeline.png": {
+      "bytes": 17487,
+      "sha256": "4259ec2feaf58fc8106d7ce23c8e208cf119fbf734027a50a21d69bcda7d0b48"
+    },
+    "examples/technical/generated/03-ml-pipeline.svg": {
+      "bytes": 5486,
+      "sha256": "c98f9cba0f783dba7c8b1a8261b962499c1cb4bd3bd585913ddc443aa90dd78e"
+    },
+    "examples/technical/generated/04-muhendislik-sistemi.base.svg": {
+      "bytes": 4278,
+      "sha256": "49afb26a8bcc83356f6a3c003dac5a85ef3a4cff5c1b77434cb625e7c1420f3e"
+    },
+    "examples/technical/generated/04-muhendislik-sistemi.labels.svg": {
+      "bytes": 977,
+      "sha256": "754f6362bf77390fa56033dcd6509d25a9bd1ac1dc6a3c51caacbfbab57083ad"
+    },
+    "examples/technical/generated/04-muhendislik-sistemi.manifest.json": {
+      "bytes": 1414,
+      "sha256": "e607e82e4ce27d6f960f7783c99d12f51dd73f8c71f4d1b7adeffa22d0297a33"
+    },
+    "examples/technical/generated/04-muhendislik-sistemi.png": {
+      "bytes": 18089,
+      "sha256": "db6e2ad6cc6fa65e1c079175836b7190942ea069589cfb14da326c69c9b34027"
+    },
+    "examples/technical/generated/04-muhendislik-sistemi.svg": {
+      "bytes": 5160,
+      "sha256": "d01da8aceaa1dc37275c70a4265976a8346c5a16e5107b7a2168fe1fb3b1634a"
+    },
+    "examples/technical/specs/01-yazilim-mimarisi.json": {
+      "bytes": 1399,
+      "sha256": "93abbe92c7c4aa79b4a4fd177e5bc57fb690301383d064455ecc8ee3e91cfe80"
+    },
+    "examples/technical/specs/02-veri-akisi.json": {
+      "bytes": 1152,
+      "sha256": "c6a2f3e7ff4e6294b72c4cedf077063739cb4597c5b327297305ea4e0e490392"
+    },
+    "examples/technical/specs/03-ml-pipeline.json": {
+      "bytes": 1635,
+      "sha256": "860a0366921d1e9eed880b7c59ff309a3f5a8c469ca507cb0439c41b2e677446"
+    },
+    "examples/technical/specs/04-muhendislik-sistemi.json": {
+      "bytes": 1505,
+      "sha256": "ddd66b96bc212df584568a335e006e784656696fb6b18e6775578d179b8ed1f0"
+    },
+    "minimaladam/SKILL.md": {
+      "bytes": 9072,
+      "sha256": "eba44fc0c8ecaff389faa03bbd967916c77b7b84f9473afa7b6f2a6ffe95a5f9"
+    },
+    "minimaladam/agents/openai.yaml": {
+      "bytes": 545,
+      "sha256": "10fd9ed327696a6cb35f6c115940ea02c5716c074c8ea8b3b32036c437e8ac86"
+    },
+    "minimaladam/assets/examples/.gitkeep": {
+      "bytes": 161,
+      "sha256": "0fbe705617f6cbae55ba35ea6cb0b7331e09404d93e5a981523535d7d5abc898"
+    },
+    "minimaladam/assets/examples/01-bilgiyi-suz.png": {
+      "bytes": 55413,
+      "sha256": "3ef037d124158f812f0ca2b451c95f71e3c42b07904be2fccd5d5f817ba9072a"
+    },
+    "minimaladam/assets/examples/02-kopan-baglantiyi-onar.png": {
+      "bytes": 44619,
+      "sha256": "5f9b762e56d54f2de8975412dc388906a0e24534996a0ad41a261f8fe19b296a"
+    },
+    "minimaladam/assets/examples/03-kanitla-karar-ver.png": {
+      "bytes": 58640,
+      "sha256": "ff1a35bbcb78b87d17c33aebcee5d84f293301f1529ae94edb13a4b9336c2697"
+    },
+    "minimaladam/assets/examples/technical/01-yazilim-mimarisi.png": {
+      "bytes": 17886,
+      "sha256": "9f28697f9cd8ae394043185196a255d2541d38f8fe25744d96a76d9bf7788444"
+    },
+    "minimaladam/assets/examples/technical/02-veri-akisi.png": {
+      "bytes": 13624,
+      "sha256": "b1a810afb069b24de4a611f072d59847ed21b15e8181bdd32f3ed2a760f054f7"
+    },
+    "minimaladam/assets/examples/technical/03-ml-pipeline.png": {
+      "bytes": 17487,
+      "sha256": "4259ec2feaf58fc8106d7ce23c8e208cf119fbf734027a50a21d69bcda7d0b48"
+    },
+    "minimaladam/assets/examples/technical/04-muhendislik-sistemi.png": {
+      "bytes": 18089,
+      "sha256": "db6e2ad6cc6fa65e1c079175836b7190942ea069589cfb14da326c69c9b34027"
+    },
+    "minimaladam/editor/core.mjs": {
+      "bytes": 17174,
+      "sha256": "9c981d9d6f86a71f10c5dcdcc00994e92fddc5093e0a41d1eba500fe094c08c1"
+    },
+    "minimaladam/editor/index.html": {
+      "bytes": 6292,
+      "sha256": "2f259e76cf8a16098b6e0b620f7e6bee047e9ddf4a509e0d4f10c63084488877"
+    },
+    "minimaladam/editor/offline.html": {
+      "bytes": 68935,
+      "sha256": "443bd6045a1098c4dc74997290447e9eb5854a25ec5b53c0152f406e29c6dc77"
+    },
+    "minimaladam/editor/quality.mjs": {
+      "bytes": 8593,
+      "sha256": "0ba38000ece5d57585eb3e00dba3a3bf1b48e40f8c81faf38d5debac42c73a63"
+    },
+    "minimaladam/editor/samples.mjs": {
+      "bytes": 6532,
+      "sha256": "010b44fbb557343ef020f902207c2ba9edfd7b0053b7d3f69e331c74249789bb"
+    },
+    "minimaladam/editor/studio.css": {
+      "bytes": 9328,
+      "sha256": "d7fb110afd2d2d7ea4c879a8362db4010440d9d98a4602a50617c8d9a20c246a"
+    },
+    "minimaladam/editor/studio.mjs": {
+      "bytes": 21707,
+      "sha256": "e5a3027f547669f8e7769f6518631bf16f84975d9b4775f48a7c981331288a27"
+    },
+    "minimaladam/examples/technical/01-yazilim-mimarisi.json": {
+      "bytes": 1399,
+      "sha256": "93abbe92c7c4aa79b4a4fd177e5bc57fb690301383d064455ecc8ee3e91cfe80"
+    },
+    "minimaladam/examples/technical/02-veri-akisi.json": {
+      "bytes": 1152,
+      "sha256": "c6a2f3e7ff4e6294b72c4cedf077063739cb4597c5b327297305ea4e0e490392"
+    },
+    "minimaladam/examples/technical/03-ml-pipeline.json": {
+      "bytes": 1635,
+      "sha256": "860a0366921d1e9eed880b7c59ff309a3f5a8c469ca507cb0439c41b2e677446"
+    },
+    "minimaladam/examples/technical/04-muhendislik-sistemi.json": {
+      "bytes": 1505,
+      "sha256": "ddd66b96bc212df584568a335e006e784656696fb6b18e6775578d179b8ed1f0"
+    },
+    "minimaladam/references/composition-patterns.md": {
+      "bytes": 4076,
+      "sha256": "10dfc3fd790b650b00b41153090356af96fe414eb8dd9c87a7fabb1672665ff3"
+    },
+    "minimaladam/references/minimaladam-character.md": {
+      "bytes": 2115,
+      "sha256": "9e650c1155a447b7d8b38c85ce92bf918f6e7ef57d6d1244131e6a941e6dd83c"
+    },
+    "minimaladam/references/prompt-template.md": {
+      "bytes": 4202,
+      "sha256": "19ba1f075ba6ff2e1e104637605207497aeecb3001e18775c931e7ea3135918f"
+    },
+    "minimaladam/references/qa-checklist.md": {
+      "bytes": 3660,
+      "sha256": "aa50f9731468fb479c81b35edf40e8794aeffd1932fd0175e34a542f03bf01e2"
+    },
+    "minimaladam/references/quality-gate.md": {
+      "bytes": 4786,
+      "sha256": "6370b864e0bba0466e5805708e33ef7a38d78e768ee7fed4781418fe27811129"
+    },
+    "minimaladam/references/style-dna.md": {
+      "bytes": 2930,
+      "sha256": "3d43d430511161877e40bc83f1581e9617d92537bedaae96494f09c8d701f0de"
+    },
+    "minimaladam/references/technical-mode.md": {
+      "bytes": 4492,
+      "sha256": "ff7dd77442ed1e3e6d5686cc2c3b610d6f434b85c278a2582aebb9a399efb763"
+    },
+    "minimaladam/references/turkish-text-layer.md": {
+      "bytes": 4137,
+      "sha256": "4569b08384307e541d2655c12000418a11344746744db898cab38dd1c2733dd6"
+    },
+    "minimaladam/references/visual-editor.md": {
+      "bytes": 3578,
+      "sha256": "3d44ab828aae7ce787bdc742069b428d78f32570e3ddb67c4901f97d32aefae3"
+    },
+    "minimaladam/requirements.txt": {
+      "bytes": 47,
+      "sha256": "b415c5a1200ca605a769a614213b5b0f3cc3cbde8eb5ac1f727f2faf9a9f30d9"
+    },
+    "minimaladam/scripts/inspect_render.py": {
+      "bytes": 5527,
+      "sha256": "896b5ec331750b68b045e0d4458bcd684f438125e381b0815721227f7a6ae937"
+    },
+    "minimaladam/scripts/raster_pillow.py": {
+      "bytes": 4874,
+      "sha256": "7c72a1af654d602e547d21bb220366ff6c3c49d2f15f6bcb5fffabca6629a534"
+    },
+    "minimaladam/scripts/render_technical_diagram.py": {
+      "bytes": 22666,
+      "sha256": "4c173c04aff6b49b4319781decdf04ae32ef70b301b1bafebbd97a88f4155191"
+    },
+    "minimaladam/scripts/render_turkish_labels.py": {
+      "bytes": 9077,
+      "sha256": "aaf4b67e4dbc0de0c520f990e4d4a42f27cd838327dc345fe283674212a8ef9d"
+    },
+    "minimaladam/scripts/start_studio.py": {
+      "bytes": 1329,
+      "sha256": "3996a8659901831c99c046f02b159d72aba9b1e20b2ba6f4424012632e1c43ba"
+    },
+    "requirements.txt": {
+      "bytes": 47,
+      "sha256": "b415c5a1200ca605a769a614213b5b0f3cc3cbde8eb5ac1f727f2faf9a9f30d9"
+    },
+    "tests/e2e_p4.py": {
+      "bytes": 5977,
+      "sha256": "ca83f94eef921626e69c956e55e5d5efdd2e631a0fb721842d9d8a9a1266de43"
+    },
+    "tests/e2e_p5.py": {
+      "bytes": 3469,
+      "sha256": "0d30edca69fc7699b60b4d6e7b457b6a2b579a7125fd7ce7479ec5bc9ec01b31"
+    },
+    "tests/js/p4_core.test.mjs": {
+      "bytes": 3412,
+      "sha256": "27efe61b8e6c84f8841236d9e47d374b89b8b0d1fc17228b68ef9d10cf8a44c5"
+    },
+    "tests/js/p5_quality.test.mjs": {
+      "bytes": 2955,
+      "sha256": "6b335793df01745d7a6bcb8341ffcf0055864c7bef68bd0161a7e0f6aa0aab61"
+    },
+    "tests/test_p1_p2.py": {
+      "bytes": 4842,
+      "sha256": "a542fe849f186a591db04e72ea799aaae992b7765710ac381b3b35b12731056c"
+    },
+    "tests/test_p3.py": {
+      "bytes": 8839,
+      "sha256": "f18d003db9e3c4b258324445187d7b4794a82cebe872c4e550f3a2aa1e658bf7"
+    },
+    "tests/test_p5_raster.py": {
+      "bytes": 1962,
+      "sha256": "a3ed99ed2a91c9c3cbd275f219d8100bcfbce41ae79ac3a7768ac243299b5c40"
+    },
+    "tools/build_offline_editor.py": {
+      "bytes": 1089,
+      "sha256": "b04e512789cdf19ba2b63adc69b2dea20d851739fdf04a058da64bbbc97bd053"
+    },
+    "tools/build_release_manifest.py": {
+      "bytes": 1500,
+      "sha256": "93de58632f1cf8003ed35d8059ad3248415df26459dfa1977e6f3b8e0d6f0303"
+    },
+    "tools/inspect_render.py": {
+      "bytes": 5527,
+      "sha256": "896b5ec331750b68b045e0d4458bcd684f438125e381b0815721227f7a6ae937"
+    },
+    "tools/install-codex.ps1": {
+      "bytes": 867,
+      "sha256": "8da99ccd9d64d9383adb10a496d8e1472caa327b442de9d4544ccfda3d06c14a"
+    },
+    "tools/make_samples.py": {
+      "bytes": 9094,
+      "sha256": "f5db0f7896226cbb48fc1f8ed9dce1cfe2129e1f7ffe4aeaabd8c2610bb796a8"
+    },
+    "tools/publish-github.ps1": {
+      "bytes": 2792,
+      "sha256": "ac335ef5810e6b0b29375f5f9a97dbc0ea2b32bf501ffd030a06bdd1c8a8d67e"
+    },
+    "tools/raster_pillow.py": {
+      "bytes": 4874,
+      "sha256": "7c72a1af654d602e547d21bb220366ff6c3c49d2f15f6bcb5fffabca6629a534"
+    },
+    "tools/render_technical_diagram.py": {
+      "bytes": 22666,
+      "sha256": "4c173c04aff6b49b4319781decdf04ae32ef70b301b1bafebbd97a88f4155191"
+    },
+    "tools/render_turkish_labels.py": {
+      "bytes": 9077,
+      "sha256": "aaf4b67e4dbc0de0c520f990e4d4a42f27cd838327dc345fe283674212a8ef9d"
+    },
+    "tools/start-editor.ps1": {
+      "bytes": 283,
+      "sha256": "d6ece1fde4a53612e5fdbd416e3dd83784dae5d6032b1345c951ce4d3d21ef8e"
+    },
+    "tools/start-editor.sh": {
+      "bytes": 117,
+      "sha256": "ec9d53d84c169c6ffbf0ead57f18f1c4e4ab51c6729591af3d3ac5d3035e50f0"
+    },
+    "tools/start_studio.py": {
+      "bytes": 1329,
+      "sha256": "3996a8659901831c99c046f02b159d72aba9b1e20b2ba6f4424012632e1c43ba"
+    },
+    "tools/validate-package.py": {
+      "bytes": 6591,
+      "sha256": "c05fe4b84b6006fd1f6b69ed379a332e825f1bd15ec9ee2d407b30d536c4dc39"
+    },
+    "tools/validate_p4.py": {
+      "bytes": 2142,
+      "sha256": "d686be70038d3adcc7088add863334b2f5e90d49fb44ff754ec724a7aaa5c2bb"
+    },
+    "tools/validate_p5.py": {
+      "bytes": 2528,
+      "sha256": "67bc0ad6dde814913f99ea8580d2ba4607616462650ac8d672546826f779f66b"
+    }
+  }
+}

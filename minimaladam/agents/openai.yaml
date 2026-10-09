@@ -1,0 +1,6 @@
+interface:
+  display_name: "MinimalAdam — Türkçe Görsel Stüdyo"
+  short_description: "Türkçe MinimalAdam illüstrasyonları ve kaynak tanımlı teknik SVG şemaları"
+  default_prompt: "Bu Türkçe metin için $minimaladam kullanarak uygun yerleri belirle ve MinimalAdam karakteriyle 16:9 açıklayıcı görseller üret. Serbest modda yazısız görsel + ayrı Türkçe etiket oluştur; yazılım mimarisi/veri akışı/ML pipeline/mühendislik talebinde P3 teknik JSON şema motorunu kullan."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "mode": "architecture",
+  "concept": "Temsili bir web uygulamasında istek ve veri kalıcılığı",
+  "source_spec": "01-yazilim-mimarisi.json",
+  "source_sha256": "93abbe92c7c4aa79b4a4fd177e5bc57fb690301383d064455ecc8ee3e91cfe80",
+  "font": "DejaVuSans.ttf",
+  "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+  "dimension": [
+    1600,
+    900
+  ],
+  "counts": {
+    "nodes": 5,
+    "edges": 4,
+    "labels": 5,
+    "minimaladam": 1
+  },
+  "outputs": {
+    "base": "01-yazilim-mimarisi.base.svg",
+    "labels": "01-yazilim-mimarisi.labels.svg",
+    "svg": "01-yazilim-mimarisi.svg",
+    "png": "01-yazilim-mimarisi.png"
+  },
+  "sha256": {
+    "base": "dc7b7704c8482a793b11b1876600e18d039bfdd56724f997d77535e1a486dc56",
+    "labels": "5ea2f84e984a9f54f0000306d018961e1f9fb3f82ae1dc88ebab8d8a4c59e7e9",
+    "svg": "ae1534afc5d9067bb481328916c76ceb060ca049b62ed8b96e1dedcbe7090ae7",
+    "png": "9f28697f9cd8ae394043185196a255d2541d38f8fe25744d96a76d9bf7788444"
+  },
+  "qa": {
+    "nfc_strings": true,
+    "glyphs_checked": true,
+    "node_collisions_checked": true,
+    "edge_hits_other_nodes_checked": true,
+    "label_bounds_checked": true,
+    "label_label_collisions_checked": true,
+    "minimaladam_action_contact_checked": true,
+    "semantic_structure_not_automatically_verified": true,
+    "manual_visual_review_required": true
+  }
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="white"/>
+<defs>
+<g id="minimaladam">
+  <!-- Tekrar kullanılabilir gövde silueti; karakter kimliği her sahnede aynı -->
+  <path d="M-48 -70 Q-53 -118 -20 -131 Q10 -147 38 -120 Q62 -97 48 -54 Q38 -12 1 -8 Q-39 -12 -48 -70Z" fill="#171717"/>
+  <ellipse cx="-17" cy="-91" rx="6.7" ry="8.2" fill="white"/>
+  <ellipse cx="17" cy="-92" rx="6.5" ry="8" fill="white"/>
+  <path d="M-15 -10 Q-18 3 -25 18 M16 -10 Q19 7 29 18" stroke="#171717" fill="none" stroke-width="6" stroke-linecap="round"/>
+</g>
+</defs>
+
+<!-- Karar tartısı: belirsiz varsayıma karşı somut kanıt -->
+<g stroke="#171717" fill="none" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<path d="M798 358 C797 453 800 548 799 670" stroke-width="7"/>
+<path d="M743 677 Q798 643 857 675 Q861 688 849 693 L751 693 Q734 687 743 677Z"/>
+<path d="M541 421 Q795 401 1058 372" stroke-width="8"/>
+<circle cx="802" cy="394" r="22" fill="white" stroke-width="6"/>
+<path d="M570 419 Q574 481 542 560 M700 413 Q705 477 726 556" stroke-width="4"/>
+<path d="M894 386 Q895 466 874 533 M1030 376 Q1037 452 1050 533" stroke-width="4"/>
+<path d="M517 562 Q635 588 749 552 Q735 621 624 627 Q528 625 517 562Z"/>
+<path d="M850 532 Q964 557 1077 528 Q1070 599 972 605 Q872 605 850 532Z"/>
+<path d="M574 535 l43 -47 l40 34 l-45 48Z" stroke="#d74b3c" stroke-width="4" stroke-dasharray="12 9"/>
+<path d="M629 542 l36 -27 l22 29" stroke="#d74b3c" stroke-width="4"/>
+<!-- Kanıt blokları (çok az) -->
+<path d="M917 526 l35 -38 l44 29 l-37 40 z M959 515 l44 -40 l38 40 l-43 38 z"/>
+<path d="M912 508 l10 6 m68 -25 l16 13" stroke="#3a79ad" stroke-width="4"/>
+<path d="M1057 382 Q1122 376 1163 358" stroke="#ed8832" stroke-width="5"/>
+<path d="M1148 345 l18 12 l-16 17" stroke="#ed8832" stroke-width="5"/>
+</g>
+<!-- MinimalAdam kanıt kutusunu bizzat kefeye koyuyor -->
+<g transform="translate(1132 671) scale(.91)"><use xlink:href="#minimaladam"/></g>
+<path d="M1086 597 Q1053 566 1044 538" stroke="#171717" fill="none" stroke-width="6" stroke-linecap="round"/>
+<path d="M1098 596 Q1073 560 1085 525" stroke="#171717" fill="none" stroke-width="6" stroke-linecap="round"/>
+<path d="M1012 493 l33 -26 l27 35 l-35 26Z" fill="white" stroke="#171717" stroke-width="5" stroke-linejoin="round"/>
+<path d="M1003 696 q100 10 181 0" fill="none" stroke="#171717" stroke-width="3" opacity=".45"/>
+</svg>
