@@ -1,22 +1,41 @@
-# MinimalAdam v0.6 — Kabul Testi Kanıtları
+# MinimalAdam — Kabul ve Yayın Kanıtları (P6)
 
-## Bu ortamda doğrulananlar (Linux / Chromium)
+Bu belge **gözlemlenen otomatik test kanıtını**, **kullanıcı tarafından yapılan Windows kabulünü** ve **henüz doğrulanmayan kapsamı** birbirinden ayırır.
 
-- Python `unittest`: **40/40 PASS**.
-- JavaScript `node --test`: **22/22 PASS**.
-- P4 tarayıcı E2E: **PASS** (sürükle/bırak, Türkçe etiketler, geri al, stiller, P3/P4 JSON, PNG 1600×900, SVG round-trip, bağlantılar).
-- P5 tarayıcı E2E: **PASS** (uyarı, dışa aktarma engeli, onay, onayın proje değişince sıfırlanması).
-- P3 örnekleri: dört declarative JSON girdisinden SVG/PNG/manifest yeniden üretimi; SHA-256 içerik kontrolleri.
-- Paket statik denetleyicileri: `validate-package.py`, `validate_p4.py`, `validate_p5.py` PASS.
-- Önceki `xiaohei` JSON karakter alanı ve `xiaohei-editor-v1` proje kimliği: geriye uyumlu dönüşüm testi PASS.
+## A. GitHub Actions — PASS (bağımsız CI kanıtı)
 
-## Henüz doğrulanmayanlar
+- Kod dalı: `main`, commit `502a824b65b051284b8f86be77830ed0d91ec213`.
+- Windows Actions: [Windows acceptance #4](https://github.com/seydivakkas/MinimalAdam/actions/runs/37998204445) — **completed / success**.
+- Python 3.12 (Windows): **40/40 Python**, **22/22 JavaScript**, P4/P5 Chromium E2E ve paket doğrulamaları **PASS**.
+- Python 3.14 (Windows): aynı kabul aşamaları **PASS**.
+- Önceki hatalar düzeltildi: Windows CRLF/LF kaynak SHA-256 uyuşmazlığı (PR #1); Windows konsolunda `cp1252` Türkçe `ğ` yazdırma hatası (`PYTHONIOENCODING=utf-8`, `PYTHONUTF8=1`).
+- PR kanıtı: [#1](https://github.com/seydivakkas/MinimalAdam/pull/1), merge commit `502a824b65b051284b8f86be77830ed0d91ec213`.
 
-- **Windows üzerinde gerçek çalıştırma: NOT_RUN.** Windows CI tanımı var, ancak GitHub'a gönderilmeden workflow çalışmaz.
-- **GitHub push: NOT_DONE.** https://github.com/seydivakkas/MinimalAdam deposu oluşturuldu ve yazma erişimi doğrulandı; dosyaların tam kaynak kod hâlinde `main` dalına gönderilmesi bekleniyor. `Publish-MinimalAdam.cmd` ve `tools/publish-github.ps1` bunu Git for Windows kimlik doğrulamasıyla gerçekleştirir.
-- Gerçek Codex çalışma zamanı kabulü: NOT_RUN.
-- Farklı Windows fontlarının çizim estetiği: NOT_VERIFIED. CairoSVG, P3 için artık zorunlu değil.
-- 2026-10-10: kullanıcıda v0.6.0 / Windows Python 3.14 ile `cairo-2.dll` bulunamadı; P3 testi başarısız kaldı. v0.6.1 Pillow düzeltmesinin gerçek Windows kabulü henüz bekleniyor.
-- Görsel estetik, mimari gerçeklik ve anlamsal uygunluk: NOT_VERIFIED.
+## B. Windows masaüstü kullanıcı kabulü — PASS (kullanıcı beyanı)
 
-GitHub Actions sonuçlarının başarılı olduğu **ancak iş akışı çalışıp kanıt üretildikten sonra** ilan edilmesi gerekir.
+**2026-10-10:** Kullanıcı, GitHub'daki güncel MinimalAdam sürümüyle aşağıdaki altı denemenin hepsinin çalıştığını bildirdi:
+
+| No | Manuel kabul adımı | Durum | Kanıt türü |
+|---|---|---|---|
+| 1 | `MinimalAdam-Studio.cmd` ile editörün açılması ve örnek çizimin görünmesi | PASS | Kullanıcı beyanı |
+| 2 | Düğümün fare ile taşınması | PASS | Kullanıcı beyanı |
+| 3 | Türkçe düğüm etiketinin değiştirilmesi | PASS | Kullanıcı beyanı |
+| 4 | SVG olarak dışa aktarım | PASS | Kullanıcı beyanı |
+| 5 | PNG olarak dışa aktarım | PASS | Kullanıcı beyanı |
+| 6 | JSON kaydetme ve aynı projeyi yeniden açma | PASS | Kullanıcı beyanı |
+
+Bu adımların tümü **kullanıcı tarafından doğrulanmıştır**; ekran kaydı veya bu kullanıcının Windows cihazından bağımsız otomatik log alınmamıştır. GitHub Actions tarayıcı E2E kayıtları aynı işlevleri ek olarak otomatik test eder; bu iki kanıt türü birbirinin yerine kullanılmaz.
+
+## C. Paket kapsamı ve sınırlar
+
+- **Doğrulandı:** Windows CI P1–P5 (Python 3.12 / 3.14); temel editör masaüstü kullanım kabulü; SVG/PNG/JSON işlemleri.
+- **Doğrulanmadı:** Gerçek Codex ajan ortamındaki bütün uçtan uca işlevler; farklı donanım/font kombinasyonları; görsel estetik ve semantik mimari doğruluk; çok düğümlü geniş ölçekli grafiklerin performansı.
+- Örnek teknik diyagramlar **temsili** içeriktir; gerçek sistemlerin doğrulanmış mimarisi değildir.
+- Özgün yazılımın MIT lisansı ve Ian'a ait karakter/görsel dilinin atfı `LICENSE` ve `NOTICE.md` içinde korunur.
+
+## D. Yayın durumu
+
+- GitHub kaynak deposu: https://github.com/seydivakkas/MinimalAdam — **PUSH DOĞRULANDI**.
+- GitHub Actions Windows: **PASS** (üstteki çalışma).
+- GitHub Release: **henüz yayımlandığı doğrulanmadı**. Yayın için sürüm etiketi, kaynak paketi, sürüm notları ve son kanıt kontrolü gerekir.
+- Sonraki sürüm notları taslağı: [docs/RELEASE_NOTES_v0.6.1.md](docs/RELEASE_NOTES_v0.6.1.md).

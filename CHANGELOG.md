@@ -1,3 +1,12 @@
+## P6 — Windows kullanım kabulü ve yayın hazırlığı (2026-10-10)
+
+- Windows masaüstü kullanıcı kabulü: editörü açma, düğüm taşıma, Türkçe etiket değiştirme, SVG/PNG dışa aktarma, JSON kaydedip yeniden açma — **6/6 PASS (kullanıcı beyanı)**.
+- Bağımsız GitHub Actions `Windows acceptance`: Python 3.12 ve 3.14 için Python/JS, P4/P5 tarayıcı E2E ve paket denetimleri **PASS**. Kanıt: https://github.com/seydivakkas/MinimalAdam/actions/runs/37998204445
+- README'de Windows hızlı başlangıç, gerçek ekran görüntüleri ve güncel yayın durumu düzenlendi.
+- `ACCEPTANCE.md` eski `NOT_RUN` iddiaları yerine gözlemlenebilir kanıtlara bağlandı.
+- `docs/RELEASE_NOTES_v0.6.1.md` ilk yayın taslağı hazırlandı. GitHub Release, yayımlandığı doğrulanıncaya kadar **NOT_PUBLISHED** kalır.
+- Gerçek Codex çalışma zamanı, mimari semantik doğruluk ve farklı font ortamları kapsam dışı/ayrı kabul olarak tutuldu.
+
 ## v0.6.1 — Windows Cairo DLL uyumluluk düzeltmesi (2026-10-10)
 
 - **P0:** Windows Python 3.14 üzerinde `cairocffi` / `cairo-2.dll` bulunamaması nedeniyle durdurulan yayın yolunu düzeltti.
