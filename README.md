@@ -7,6 +7,29 @@
 **Türetildiği özgün çalışma:** [Ian Xiaohei Illustrations — helloianneo](https://github.com/helloianneo/ian-xiaohei-illustrations) (Ian).  
 **Bu paket:** Türkçeye uyarlanmış Skill + P1 özgün örnek sahneleri + P2 ayrı yazı katmanı aracı + P3 teknik çizim motoru + P4 yerel görsel editör + P5 otomatik kalite kapısı. Kaynak projenin MIT lisansı ve yaratıcısına atıf korunur. Bu paket, Ian'ın resmî sürümü değildir.
 
+## Hızlı başlangıç — Windows (P6 kabul edildi)
+
+**En kolay yol:** [GitHub deposundan](https://github.com/seydivakkas/MinimalAdam) **Code → Download ZIP** seç, ZIP'i çıkart ve **`MinimalAdam-Studio.cmd`** dosyasına çift tıkla. Alternatif olarak `editor/offline.html` dosyasını Edge/Chrome ile aç.
+
+**Python, Node.js, API anahtarı, internet veya aylık abonelik gerekmez** — bunlar editörün açılması ve çalışması için gerekli değildir. Kaynak kod testleri ve geliştirici komutları ayrıdır.
+
+| Yapmak istediğin | Editörde izleyeceğin yol |
+|---|---|
+| Var olan teknik çizimi açmak | Örnek proje veya JSON içe aktar |
+| Düğümü yerinden oynatmak | Tuvalde düğümü fareyle sürükle |
+| Türkçe etiketi değiştirmek | Düğümü seçip metnini düzenle |
+| Tasarımı değiştirmek | Stil seçicisinden bir stil seç |
+| Çalışmayı saklamak | JSON kaydet; sonra yeniden içe aktar |
+| Görseli paylaşmak | SVG veya 1600×900 PNG dışa aktar |
+
+![MinimalAdam Studio — gerçek editör ekranı](examples/editor/studio-preview.png)
+
+![MinimalAdam Studio — P5 kalite denetimi ve metin uyarısı](examples/editor/studio-qa-preview.png)
+
+**Doğrulama:** [Windows CI (Python 3.12 ve 3.14): PASS](https://github.com/seydivakkas/MinimalAdam/actions/runs/37998204445). Altı temel editör kullanım adımı da kullanıcı tarafından başarılı bildirildi. Ayrıntılar ve kapsam sınırları [ACCEPTANCE.md](ACCEPTANCE.md) belgesinde; sürüm notları [docs/RELEASE_NOTES_v0.6.1.md](docs/RELEASE_NOTES_v0.6.1.md) dosyasında.
+
+---
+
 ## Proje nedir?
 
 Özgün çalışma, Codex'e yüklenen **AI ajan becerisi (Skill)** paketidir. Bu Türkçe uyarlama, P4 ile tarayıcı tabanlı **ayrı bir teknik şema editörü** de içerir. Ancak bağımsız görüntü üretim modeli içermez. Türkçe makalelerdeki önemli kararları, akışları, durumları ve kavramsal ilişkileri seçerek, anlaşılır ama sıradan olmayan açıklayıcı resimlere dönüştürmeyi amaçlar.
@@ -323,14 +346,12 @@ isteğe bağlı ayrı bir bakım aracıdır; SVG dönüştürme aşamasında Cai
 Windows'ta yerel Cairo DLL gerekebilir. Paket içindeki P1 görselleri hazırdır ve
 normal kullanım, yayın/test veya P3 üretimi bu bakım aracını çağırmaz.
 
-## GitHub'a ilk yayın (MinimalAdam v0.6.1)
+## GitHub durumu ve sürüm yayını
 
-Mevcut ve boş hedef depo: **https://github.com/seydivakkas/MinimalAdam**.
+**Kaynak kod GitHub'da:** [seydivakkas/MinimalAdam](https://github.com/seydivakkas/MinimalAdam). Windows CI, Python 3.12 ve Python 3.14 üzerinde başarılıdır. Windows masaüstü kullanıcı kabulünün altı temel adımı kullanıcı beyanıyla PASS olarak kaydedildi.
 
-Windows'ta ZIP içeriğini çıkarıp `Publish-MinimalAdam.cmd` dosyasına çift tıkla. Betik Python/JavaScript ve statik testleri çalıştırır, Git deposunu başlatır, `origin` bağlantısını doğrular, commit oluşturur ve **force push kullanmadan** `main` dalına gönderir. GitHub kimlik doğrulaması istenirse kendi hesabınla oturum aç. Alternatif:
+- Son otomatik Windows kabul kanıtı: [Actions başarılı çalışma](https://github.com/seydivakkas/MinimalAdam/actions/runs/37998204445).
+- Kanıt türleri ve sınırlar: [ACCEPTANCE.md](ACCEPTANCE.md).
+- İlk sürüm için hazır yayın notları: [v0.6.1 sürüm notları](docs/RELEASE_NOTES_v0.6.1.md).
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\publish-github.ps1
-```
-
-GitHub Actions `windows-acceptance.yml` iş akışı ancak başarılı push sonrasında çalışır. Başarılı CI kaydı görülmeden Windows kabulü PASS sayılamaz.
+GitHub Release oluşturulup yayınlandığı henüz doğrulanmadı; bir sürüm etiketi veya indirme varlığı yayımlanmadan önce bunu tamamlanmış olarak göstermiyoruz. `Publish-MinimalAdam.cmd` eski ilk kurulum senaryosuna aittir; güncel GitHub deposuna değişiklik göndermek için kullanılmamalıdır. Geliştirici değişiklikleri standart branch/PR süreciyle yapılır.
