@@ -56,10 +56,14 @@ jobs:
             echo "RELEASE_EXISTS=true" >> "$GITHUB_ENV"
           else
             echo "RELEASE_EXISTS=false" >> "$GITHUB_ENV"
-            TAG_SHA="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha' 2>/dev/null || true)"
-            if [ -n "$TAG_SHA" ] && [ "$TAG_SHA" != "$VERIFIED_SHA" ]; then
-              echo "::error::Existing v0.6.1 tag points to another commit"
-              exit 1
+            # gh api --jq can print literal "null" on an HTTP 404. Distinguish
+            # a missing tag by the API exit status before parsing any JSON.
+            if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > "$RUNNER_TEMP/release-tag.json" 2>/dev/null; then
+              TAG_SHA="$(jq -r '.object.sha // empty' "$RUNNER_TEMP/release-tag.json")"
+              if [ -z "$TAG_SHA" ] || [ "$TAG_SHA" != "$VERIFIED_SHA" ]; then
+                echo "::error::Existing v0.6.1 tag does not point to the verified commit"
+                exit 1
+              fi
             fi
           fi
 
