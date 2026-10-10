@@ -1,0 +1,109 @@
+name: Publish MinimalAdam v0.6.1
+
+on:
+  workflow_run:
+    workflows: ["Windows acceptance"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: minimaladam-release-v0.6.1
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Verified v0.6.1 ZIP and GitHub Release
+    if: >-
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+          github.event.workflow_run.event == 'push' &&
+          github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TAG: v0.6.1
+      VERIFIED_SHA: ${{ github.event.workflow_run.head_sha }}
+      VERIFIED_RUN: ${{ github.event.workflow_run.id }}
+      PYTHONUTF8: '1'
+    steps:
+      - name: Checkout verified main commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - name: Confirm reviewed commit remains current main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          ACTUAL_MAIN="$(git rev-parse FETCH_HEAD)"
+          if [ "$VERIFIED_SHA" != "$ACTUAL_MAIN" ]; then
+            echo "::error::Verified Windows CI commit is not current main; release blocked"
+            exit 1
+          fi
+
+      - name: Prevent conflicting tag or duplicate release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "::notice::Release already published; no assets overwritten"
+            echo "RELEASE_EXISTS=true" >> "$GITHUB_ENV"
+          else
+            echo "RELEASE_EXISTS=false" >> "$GITHUB_ENV"
+            TAG_SHA="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha' 2>/dev/null || true)"
+            if [ -n "$TAG_SHA" ] && [ "$TAG_SHA" != "$VERIFIED_SHA" ]; then
+              echo "::error::Existing v0.6.1 tag points to another commit"
+              exit 1
+            fi
+          fi
+
+      - name: Build and verify source ZIP and SHA-256 assets
+        if: env.RELEASE_EXISTS == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_release.py \
+            --version 0.6.1 \
+            --source-commit "$VERIFIED_SHA" \
+            --ci-url "https://github.com/$GITHUB_REPOSITORY/actions/runs/$VERIFIED_RUN" \
+            --output-dir dist
+          cd dist
+          sha256sum -c SHA256SUMS.txt
+
+      - name: Publish GitHub Release
+        if: env.RELEASE_EXISTS == 'false'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "$TAG" \
+            dist/MinimalAdam-v0.6.1.zip \
+            dist/MinimalAdam-v0.6.1.manifest.json \
+            dist/SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$VERIFIED_SHA" \
+            --title "MinimalAdam v0.6.1" \
+            --notes-file docs/RELEASE_NOTES_v0.6.1.md \
+            --latest
+
+      - name: Verify published Release and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" \
+            --json tagName,isDraft,isPrerelease,assets,url \
+            --jq '{tag:.tagName,draft:.isDraft,prerelease:.isPrerelease,assetNames:[.assets[].name],url:.url}'
+          COUNT="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets | length')"
+          if [ "$COUNT" -lt 3 ]; then
+            echo "::error::Release must contain ZIP, manifest, and checksums"
+            exit 1
+          fi
