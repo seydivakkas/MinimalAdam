@@ -37,11 +37,20 @@ Bu sürüm bağımsız bir AI görüntü modeli içermez. Teknik şemalar, tanı
 
 Özgün [Ian Xiaohei Illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) çalışmasına ve Ian'a atıf korunmuştur; MIT lisansı için [LICENSE](../LICENSE) ve [NOTICE.md](../NOTICE.md) dosyalarına bakın.
 
-## GitHub Release yayın kontrolü
+## Sürüm paketinin bütünlüğünü doğrulama
 
-- Etiket: `v0.6.1` (henüz oluşturulduğu doğrulanmadı).
-- Hedef commit: yayın belgeleri `main` dalına alındıktan sonra başarılı CI çalıştırmasının bağlı olduğu commit.
-- Varlık: kaynak ZIP; paketin içerdiği `MinimalAdam-Studio.cmd`, `editor/offline.html`, `LICENSE`, `NOTICE.md` ve `README.md` kontrol edilmeli.
-- Github Release oluşturulup yayımlandıktan sonra indirme bağlantısı README'ye eklenebilir.
+Bu sürümde üç indirme varlığı bulunur:
 
-**Not:** Bu dosya yayın notu taslağıdır. GitHub Release oluşturulmadan yayın gerçekleşmiş sayılmamalıdır.
+- `MinimalAdam-v0.6.1.zip` — çevrimdışı editör, Codex Skill, örnekler, kaynak ve testler.
+- `MinimalAdam-v0.6.1.manifest.json` — kaynak commit'i ve paket içindeki her dosyanın SHA-256 özeti.
+- `SHA256SUMS.txt` — ZIP ve manifest varlıklarının SHA-256 özetleri.
+
+Dosyaları aynı klasöre indirdikten sonra Windows PowerShell'de:
+
+```powershell
+Get-FileHash .\\MinimalAdam-v0.6.1.zip -Algorithm SHA256
+Get-FileHash .\\MinimalAdam-v0.6.1.manifest.json -Algorithm SHA256
+Get-Content .\\SHA256SUMS.txt
+```
+
+Komutlardan gelen SHA-256 değerlerini `SHA256SUMS.txt` içindeki karşılıklarıyla eşleştirin. Release, yalnızca `main` dalında başarılı Windows CI doğrulamasından sonra yayımlanır. Bağımsız doğrulama kayıtları [ACCEPTANCE.md](https://github.com/seydivakkas/MinimalAdam/blob/main/ACCEPTANCE.md) dosyasındadır.
