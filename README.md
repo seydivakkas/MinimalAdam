@@ -354,4 +354,4 @@ normal kullanım, yayın/test veya P3 üretimi bu bakım aracını çağırmaz.
 - Kanıt türleri ve sınırlar: [ACCEPTANCE.md](ACCEPTANCE.md).
 - İlk sürüm için hazır yayın notları: [v0.6.1 sürüm notları](docs/RELEASE_NOTES_v0.6.1.md).
 
-GitHub Release oluşturulup yayınlandığı henüz doğrulanmadı; bir sürüm etiketi veya indirme varlığı yayımlanmadan önce bunu tamamlanmış olarak göstermiyoruz. `Publish-MinimalAdam.cmd` eski ilk kurulum senaryosuna aittir; güncel GitHub deposuna değişiklik göndermek için kullanılmamalıdır. Geliştirici değişiklikleri standart branch/PR süreciyle yapılır.
+**Sürüm indirmeleri:** [MinimalAdam v0.6.1 GitHub Releases](https://github.com/seydivakkas/MinimalAdam/releases/tag/v0.6.1). Bu bağlantı yalnızca başarılı Windows CI sonrasında Release iş akışı yayımlamayı tamamladığında etkinleşir. ZIP ve ayrı SHA-256 dosyaları [sürüm notlarındaki](docs/RELEASE_NOTES_v0.6.1.md) adımlarla doğrulanabilir. `Publish-MinimalAdam.cmd` eski ilk kurulum senaryosuna aittir; güncel GitHub deposuna değişiklik göndermek için kullanılmamalıdır. Geliştirici değişiklikleri standart branch/PR süreciyle yapılır.
